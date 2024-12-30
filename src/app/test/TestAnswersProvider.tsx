@@ -1,38 +1,30 @@
 'use client';
+import React, { createContext, useReducer, ReactNode, useContext } from 'react';
 
-import React, { createContext, useReducer, useContext, ReactNode } from 'react';
-
-// Define the shape of the context data
 interface TestAnswersState {
   [section: string]: {
-    [testId: string]: { [questionIndex: number]: number };
+    [testId: string]: {
+      [questionIndex: string]: string;
+    };
   };
 }
 
-interface SetAnswerAction {
-  type: 'SET_ANSWER';
-  payload: { section: string; testId: string; questionIndex: number; optionIndex: number };
+interface Action {
+  type: 'SET_ANSWER' | 'RESET_ANSWERS';
+  payload?: {
+    section: string;
+    testId: string;
+    questionIndex: string;
+    optionIndex: string;
+  };
 }
-
-interface ResetAnswersAction {
-  type: 'RESET_ANSWERS';
-}
-
-type Action = SetAnswerAction | ResetAnswersAction;
 
 const initialState: TestAnswersState = {};
 
-// Create the context
-const TestAnswersContext = createContext<{
-  state: TestAnswersState;
-  dispatch: React.Dispatch<Action>;
-} | undefined>(undefined);
-
-// Reducer function to handle state updates
 const testAnswersReducer = (state: TestAnswersState, action: Action): TestAnswersState => {
   switch (action.type) {
     case 'SET_ANSWER': {
-      const { section, testId, questionIndex, optionIndex } = action.payload;
+      const { section, testId, questionIndex, optionIndex } = action.payload!;
       return {
         ...state,
         [section]: {
@@ -52,7 +44,11 @@ const testAnswersReducer = (state: TestAnswersState, action: Action): TestAnswer
   }
 };
 
-// Create a provider component
+const TestAnswersContext = createContext<{
+  state: TestAnswersState;
+  dispatch: React.Dispatch<Action>;
+} | undefined>(undefined);
+
 const TestAnswersProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [state, dispatch] = useReducer(testAnswersReducer, initialState);
 
@@ -63,7 +59,6 @@ const TestAnswersProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   );
 };
 
-// Custom hook to use the TestAnswersContext
 const useTestAnswers = () => {
   const context = useContext(TestAnswersContext);
   if (context === undefined) {

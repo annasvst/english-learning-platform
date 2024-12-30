@@ -13,11 +13,11 @@ export default function Result() {
     let totalQuestions = 0;
 
     readingPassages.forEach((passage) => {
-      passage.questions.forEach((question, questionIndex) => {
+      passage.questions.forEach((question) => {
         totalQuestions++;
         const section = 'reading'; // Assuming the section is 'reading'
-        const testId = passage.passageId;
-        if (state[section]?.[testId]?.[questionIndex] === question.correctAnswer) {
+        const testId = passage.id;
+        if (state[section]?.[testId]?.[question.id] === question.correctAnswer) {
           correctAnswers++;
         }
       });
