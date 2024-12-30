@@ -26,7 +26,206 @@ export enum Level {
 export const readingPassages: Passage[] = [
   {
     id: "550e8400-e29b-41d4-a716-446655440000",
-    title: "Passage 1 (B1–B2)",
+    title: "Passage 1 (A1)",
+    text: 'I live in a house near the mountains. I have two brothers and one sister. My father teaches mathematics, and my mother is a nurse at a big hospital. My brothers are very smart and work hard in school. My sister is a nervous girl, but she is very kind. My grandmother also lives with us. She came from Italy when I was two years old. She has grown old, but she is still very strong. She cooks the best food! My family is very important to me. We do lots of things together. My brothers and I like to go on long walks in the mountains. My sister likes to cook with my grandmother. We all play board games together on Satudays and Sundays. I love my family very much.',
+    level: [Level.A1],
+    questions: [
+      {
+        id: "2abb4c63-583c-4309-a85b-39f134dc91fc",
+        title:
+          "Her father is a...",
+        options: [
+          {
+            id: "a0f69b42-c758-4f76-90f8-ab7dc995aff5",
+            title: "Doctor"
+          }, {
+            id: "ed4fe410-68be-4ef2-a8ca-5ad3dd200622",
+            title: "Nurse"
+          }, {
+            id: "98dd7a4c-ecc4-4b3d-a28f-167b3a59dd74",
+            title: "Teacher"
+          }, {
+            id: "ba2efa94-a39b-4d75-b43f-87ca217b2e91",
+            title: "Waitress"
+          }
+        ],
+        // (Suggested answer: C => id 98dd7a4c-ecc4-4b3d-a28f-167b3a59dd74)
+        correctAnswer: "98dd7a4c-ecc4-4b3d-a28f-167b3a59dd74"
+      },
+      {
+        id: "aba0dd4c-45a7-4ba3-8ca8-44bfb3665232",
+        title: "On the weekends, they...",
+        options: [
+           {
+            id: "95b502bb-ee7b-46b0-b486-7dabbd08b2d3",
+            title: "Play board games together"
+          }, {
+            id: "ebab5585-670c-4ad1-88ca-fa7515b57143",
+            title: "Go to a movie"
+          },
+          {
+            id: "e2162f71-923a-4df5-b2e0-df46b8c69f5d",
+            title: "Clean the house"
+          }, {
+            id: "b5db8526-b48d-4d98-8dc5-fc22e645d0e1",
+            title: "Cook pasta"
+          }
+        ],
+        // (Suggested answer: A => id "ed4fe410-68be-4ef2-a8ca-5ad3dd200622")
+        correctAnswer: "ed4fe410-68be-4ef2-a8ca-5ad3dd200622"
+      },
+      {
+        id: "c16a0ea9-feaa-468c-a19c-17a2147330a0",
+        title:
+          "How old was she when her grandmother came?",
+        options: [
+          {
+            id: "3fbbd8e8-4276-4947-b302-f434aec16fe9",
+            title: "Three years old"
+          }, {
+            id: "6e421aa0-840c-40b7-a67b-24edfab34f64",
+            title: "Just born"
+          }, {
+            id: "2da57a2b-7cce-4704-9e5e-c00861fe68de",
+            title: "Ten years old"
+          }, {
+            id: "1f07cdfa-5968-4549-952e-cc7a1ea002c4",
+            title: "Two years old"
+          }
+        ],
+        // (Suggested answer: D => id "1f07cdfa-5968-4549-952e-cc7a1ea002c4")
+        correctAnswer: "1f07cdfa-5968-4549-952e-cc7a1ea002c4"
+      },
+      {
+        id: "15cec2f6-55cd-48b1-98f2-556bb1650fca",
+        title:
+          "Her sister is kind, but also...",
+        options: [
+          {
+            id: "7eee238c-41fe-4d2c-98ae-873565035b5c",
+            title: "Mean"
+          }, {
+            id: "10e69736-3971-4987-9f3d-a2554e1d7d44",
+            title: "Quiet"
+          }, {
+            id: "c7ad34dc-3414-4cff-bcc7-f7f79832f1ca",
+            title: "Nervous"
+          }, {
+            id: "1ee84a7a-a635-48d4-ac27-46b56402b82e",
+            title: "Strong"
+          }],
+        // (Suggested answer: C => id c7ad34dc-3414-4cff-bcc7-f7f79832f1ca)
+        correctAnswer: "c7ad34dc-3414-4cff-bcc7-f7f79832f1ca"
+      }
+    ]
+  },
+  {
+    id: "5fb284d3-9868-4c10-b2f0-eea2ed83c206",
+    title: "Passage 2 (A2)",
+    text: 'Japan is a country with many traditions. It is known for its beautiful shrines and temples. The Japanese language is very different from English. Many people visit Japan for sightseeing and tourism. Japan is an island country surrounded by the ocean. People often take trips to see the cities and rural areas. Anime is very popular in Japan and around the world. Ramen is a famous Japanese food that many people enjoy. Traveling to Japan can be a great experience. You can visit many interesting places and try new things. The cities are very busy and many people work there. However, the countryside is more relaxing and has beautiful nature. If you are planning a trip to Japan, you should learn some basic Japanese phrases. It is also a good idea to try different kinds of Japanese food. You can visit shrines and temples to learn about Japanese culture and history.',
+    level: [Level.A2],
+    questions: [
+      {
+        id: "917661db-96fd-4ba3-8ccc-e58e819bb8c8",
+        title:
+          "What is one of the reasons people visit Japan?",
+        options: [
+          {
+            id: "e5d58ff0-abc9-4461-aa34-830bb09bb37f",
+            title: "For its beautiful shrines and temples"
+          },
+          {
+            id: "e5ef7cdd-51d2-4dc3-bb06-5c1d10682846",
+            title: "To experience snow-capped mountain"
+          },
+          {
+            id: "14978dc0-77e1-4f7b-a173-31988d43b787",
+            title: "To see its famous desert landscapes"
+          },
+          {
+            id: "b61bf348-7ccc-495f-8d8f-32e012192d25",
+            title: "To visit historical World War sites"
+          }
+        ],
+        // (Suggested answer: A => id e5d58ff0-abc9-4461-aa34-830bb09bb37f)
+        correctAnswer: "e5d58ff0-abc9-4461-aa34-830bb09bb37f"
+      },
+      {
+        id: "415149c6-c062-4b16-8b25-30c22aaad83d",
+        title: "Which Japanese food is mentioned as famous and widely enjoyed?",
+        options: [
+          {
+            id : "7d09dd0a-9c29-40ee-a245-ec4ddc3b381e",
+            title: "Teriyaki"
+          }, {
+            id: "90ae19e9-2172-454d-9070-d0b105261c71",
+            title: "Sushi"
+          }, {
+            id: "0f6581f3-113c-429e-97ec-046111aa4341",
+            title: "Ramen"
+          }, {
+            id: "c944e5a2-5ddd-4917-bc0b-041d9d564a0c",
+            title: "Tofu"
+          }
+        ],
+        // (Suggested answer: C => id 0f6581f3-113c-429e-97ec-046111aa4341)
+        correctAnswer: "0f6581f3-113c-429e-97ec-046111aa4341"
+      },
+      {
+        id: "0899a9db-3eaf-4e6b-8932-4fa7c3e98581",
+        title:
+          "What is one of the things visitors can do in Japan?",
+        options: [
+          {
+            id: "7b7eeddb-5237-410c-a1bb-f9bb372c05e9",
+            title: "Work in local businesses"
+          },
+          {
+            id: "f37f0508-241d-49c3-b705-5ffc2ca12eb7",
+            title: "Visit famous landmarks"
+          },
+          {
+            id: "facffc04-d082-4e59-ab56-42ec68d365c2",
+            title: "Only visit beaches"
+          },
+          {
+            id: "e4b82c09-afdd-4bbe-b054-ccacc7dd34a3",
+            title: "Ignore Japanese culture"
+          }
+        ],
+        // (Suggested answer: B => id f37f0508-241d-49c3-b705-5ffc2ca12eb7)
+        correctAnswer: "f37f0508-241d-49c3-b705-5ffc2ca12eb7"
+      },
+      {
+        id: "8dec0639-810c-4791-8a69-341d18a4ab41",
+        title:
+          'What is a recommended preparation step if planning a trip to Japan?',
+        options: [
+          {
+            id: "d0ba29de-1c75-4064-9c1d-9d2094255912",
+            title: "Bringing your own supply of rice",
+          },
+          {
+            id: "6e1b0947-99a6-412d-bdd6-0c8ea75252fe",
+            title: "Learning some basic German phrases",
+          },
+          {
+            id: "89959386-9476-48a2-a85b-21e7d5ddd14c",
+            title: "Booking only rural area accommodations",
+          },
+          {
+            id: "97c644d6-d0b7-427b-871f-1c3220a82cb3",
+            title: "Learning some basic Japanese phrases",
+          }
+        ],
+        // (Suggested answer: D => id 97c644d6-d0b7-427b-871f-1c3220a82cb3)
+        correctAnswer: "97c644d6-d0b7-427b-871f-1c3220a82cb3"
+      }
+    ]
+  },
+  {
+    id: "9f830730-4580-4e4c-8f1a-d9bebaa71ddd",
+    title: "Passage 3 (B1–B2)",
     text: `Many people today choose to spend their vacations in smaller towns rather than in large cities. They enjoy the slower pace of life and the chance to explore local traditions. In these towns, visitors often discover family-owned shops, try authentic regional cuisine, and take part in cultural festivals that have been celebrated for decades. While big cities might offer famous landmarks and modern attractions, small towns give travelers a closer look into the everyday lives of local residents. In addition, many small communities benefit from tourism revenue, which helps support local businesses and preserve cultural heritage.`,
     level: [Level.B1, Level.B2],
     questions: [
@@ -126,7 +325,7 @@ export const readingPassages: Passage[] = [
   },
   {
     id: "550e8400-e29b-41d4-a716-446655440011",
-    title: "Passage 2 (C1)",
+    title: "Passage 4 (C1)",
     text: `The concept of "flow," popularized by psychologist Mihaly Csikszentmihalyi, describes a mental state in which a person is fully immersed and engaged in an activity. During flow, individuals experience a sense of energized focus, complete involvement, and enjoyment in the process. Although frequently discussed in the context of athletes and artists, flow can manifest in any pursuit—from writing code to solving complex mathematical problems. This state is said to occur when one's skill level perfectly meets the challenge at hand, fostering both productivity and creativity. Critics, however, argue that the flow concept oversimplifies human motivation, suggesting that it ignores external factors such as deadlines, social pressure, or the need for tangible rewards.`,
     level: [Level.C1],
     questions: [
