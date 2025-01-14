@@ -1,34 +1,11 @@
-export interface Option {
-  id: string;
-  title: string;
-}
+import { ReadingTest } from "modules/app/lib/models/test";
 
-export interface Question {
-  id: string;
-  title: string;
-  options: Option[];
-  correctAnswer: string;
-}
-
-export interface Passage {
-  id: string;
-  title: string;
-  text: string;
-  level: Level[],
-  questions: Question[];
-}
-
-export enum Level {
-  A1, A2, B1, B2, C1, C2
-};
-
-
-export const readingPassages: Passage[] = [
+export const readingPassages: ReadingTest[] = [
   {
     id: "550e8400-e29b-41d4-a716-446655440000",
     title: "Passage 1 (A1)",
     text: 'I live in a house near the mountains. I have two brothers and one sister. My father teaches mathematics, and my mother is a nurse at a big hospital. My brothers are very smart and work hard in school. My sister is a nervous girl, but she is very kind. My grandmother also lives with us. She came from Italy when I was two years old. She has grown old, but she is still very strong. She cooks the best food! My family is very important to me. We do lots of things together. My brothers and I like to go on long walks in the mountains. My sister likes to cook with my grandmother. We all play board games together on Satudays and Sundays. I love my family very much.',
-    level: [Level.A1],
+    // level: [Level.A1],
     questions: [
       {
         id: "2abb4c63-583c-4309-a85b-39f134dc91fc",
@@ -123,7 +100,7 @@ export const readingPassages: Passage[] = [
     id: "5fb284d3-9868-4c10-b2f0-eea2ed83c206",
     title: "Passage 2 (A2)",
     text: 'Japan is a country with many traditions. It is known for its beautiful shrines and temples. The Japanese language is very different from English. Many people visit Japan for sightseeing and tourism. Japan is an island country surrounded by the ocean. People often take trips to see the cities and rural areas. Anime is very popular in Japan and around the world. Ramen is a famous Japanese food that many people enjoy. Traveling to Japan can be a great experience. You can visit many interesting places and try new things. The cities are very busy and many people work there. However, the countryside is more relaxing and has beautiful nature. If you are planning a trip to Japan, you should learn some basic Japanese phrases. It is also a good idea to try different kinds of Japanese food. You can visit shrines and temples to learn about Japanese culture and history.',
-    level: [Level.A2],
+    // level: [Level.A2],
     questions: [
       {
         id: "917661db-96fd-4ba3-8ccc-e58e819bb8c8",
@@ -227,7 +204,7 @@ export const readingPassages: Passage[] = [
     id: "9f830730-4580-4e4c-8f1a-d9bebaa71ddd",
     title: "Passage 3 (B1–B2)",
     text: `Many people today choose to spend their vacations in smaller towns rather than in large cities. They enjoy the slower pace of life and the chance to explore local traditions. In these towns, visitors often discover family-owned shops, try authentic regional cuisine, and take part in cultural festivals that have been celebrated for decades. While big cities might offer famous landmarks and modern attractions, small towns give travelers a closer look into the everyday lives of local residents. In addition, many small communities benefit from tourism revenue, which helps support local businesses and preserve cultural heritage.`,
-    level: [Level.B1, Level.B2],
+    // level: [Level.B1, Level.B2],
     questions: [
       {
         id: "550e8400-e29b-41d4-a716-446655440001",
@@ -327,7 +304,7 @@ export const readingPassages: Passage[] = [
     id: "550e8400-e29b-41d4-a716-446655440011",
     title: "Passage 4 (C1)",
     text: `The concept of "flow," popularized by psychologist Mihaly Csikszentmihalyi, describes a mental state in which a person is fully immersed and engaged in an activity. During flow, individuals experience a sense of energized focus, complete involvement, and enjoyment in the process. Although frequently discussed in the context of athletes and artists, flow can manifest in any pursuit—from writing code to solving complex mathematical problems. This state is said to occur when one's skill level perfectly meets the challenge at hand, fostering both productivity and creativity. Critics, however, argue that the flow concept oversimplifies human motivation, suggesting that it ignores external factors such as deadlines, social pressure, or the need for tangible rewards.`,
-    level: [Level.C1],
+    // level: [Level.C1],
     questions: [
       {
         id: "2a137e9b-f157-4086-a700-4077e3bae502",

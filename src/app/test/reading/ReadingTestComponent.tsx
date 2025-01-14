@@ -1,18 +1,17 @@
 'use client';
 
+import { ReadingTest } from "modules/app/lib/models/test";
 import { useTestAnswers } from "../TestAnswersProvider";
-import { Passage } from "./readingData";
 
 interface ReadingTestComponentProps {
-  data: Passage;
-  section: string;
+  data: ReadingTest;
 }
 
-export const ReadingTestComponent: React.FC<ReadingTestComponentProps> = ({ data, section }) => {
+export const ReadingTestComponent: React.FC<ReadingTestComponentProps> = ({ data }) => {
   const { state, dispatch } = useTestAnswers();
 
-  const handleOptionChange = (questionIndex: string, optionIndex: string) => {
-    dispatch({ type: 'SET_ANSWER', payload: { section, testId: data.id, questionIndex, optionIndex } });
+  const handleOptionChange = (questionId: string, optionId: string) => {
+    dispatch({ type: 'SET_ANSWER', payload: { section: 'reading', testId: data.id, questionId, optionId } });
   };
 
   return (
@@ -33,7 +32,7 @@ export const ReadingTestComponent: React.FC<ReadingTestComponentProps> = ({ data
                     value={option.title}
                     className="mr-2"
                     onChange={() => handleOptionChange(question.id, option.id)}
-                    checked={state[section]?.[data.id]?.[question.id] === option.id}
+                    checked={state['reading']?.[data.id]?.[question.id] === option.id}
                   />
                   <label htmlFor={option.id} className="text-gray-700">
                     {option.title}
