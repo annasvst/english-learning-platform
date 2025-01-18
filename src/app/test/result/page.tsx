@@ -1,8 +1,9 @@
-'use client';
+"use client";
 
 import Link from "next/link";
 import { useTestAnswers } from "../TestAnswersProvider";
 import { readingPassages } from "../reading/readingData";
+import { Button } from "modules/app/components/Button";
 
 export default function Result() {
   const { state } = useTestAnswers();
@@ -15,9 +16,11 @@ export default function Result() {
     readingPassages.forEach((passage) => {
       passage.questions.forEach((question) => {
         totalQuestions++;
-        const section = 'reading'; // Assuming the section is 'reading'
+        const section = "reading"; // Assuming the section is 'reading'
         const testId = passage.id;
-        if (state[section]?.[testId]?.[question.id] === question.correctAnswer) {
+        if (
+          state[section]?.[testId]?.[question.id] === question.correctAnswer
+        ) {
           correctAnswers++;
         }
       });
@@ -48,9 +51,9 @@ export default function Result() {
         <h2>Your result</h2>
         <p>Score: {score.toFixed(2)}%</p>
         <p>Level: {level}</p>
-        <Link href="/" className="px-4 py-2 bg-blue-500 text-white rounded-lg shadow hover:bg-blue-600 transition-colors">
-            Return to the main page
-        </Link>
+        <Button>
+          <Link href="/">Return to the main page</Link>
+        </Button>
       </main>
     </div>
   );
