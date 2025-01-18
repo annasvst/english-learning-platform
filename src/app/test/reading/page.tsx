@@ -1,5 +1,5 @@
 "use client";
-import { Button } from "modules/app/components/Button";
+import { Button, ButtonType } from "modules/app/components/Button";
 
 import Link from "next/link";
 import { ReadingTestComponent } from "./ReadingTestComponent";
@@ -27,14 +27,13 @@ export default function ReadingTestHome() {
 
         <div className="flex items-center justify-center mt-8 text-center">
           {currentPassageIndex < readingPassages.length - 1 ? (
-            <Button text="Next Passage" onClick={handleNextPassage} type="basic"/>
+            <Button onClick={handleNextPassage}>Next Passage</Button>
           ) : (
-            <Link
-              href="/test/listening"
-              className="px-4 py-2 bg-green-600 text-white rounded shadow hover:bg-green-600 transition-colors"
-            >
-              Complete and go to the next section
-            </Link>
+            <Button type={ButtonType.Success}>
+              <Link href="/test/listening">
+                Complete and go to the next section
+              </Link>
+            </Button>
           )}
         </div>
       </main>

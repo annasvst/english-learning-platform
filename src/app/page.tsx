@@ -2,7 +2,7 @@
 
 import { redirect } from "next/navigation";
 import { useTestAnswers } from "./test/TestAnswersProvider";
-import { Button } from "./components/Button";
+import { Button, ButtonType } from "./components/Button";
 
 export default function Home() {
   const { dispatch } = useTestAnswers();
@@ -17,7 +17,9 @@ export default function Home() {
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
         <h1>Welcome to the test</h1>
         <p>Instructions to be here</p>
-        <Button text="Start test" onClick={handleStartTest} type="start"/>
+        <Button onClick={handleStartTest} type={ButtonType.Success}>
+          Start test
+        </Button>
       </main>
     </div>
   );

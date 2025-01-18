@@ -1,33 +1,41 @@
 import { ReactNode } from "react";
 
 interface ButtonProps {
-  text: string;
-  onClick: (arg: React.SyntheticEvent) => void;
-  className?: string;
+  children: ReactNode;
+  onClick?: (arg: React.SyntheticEvent) => void;
   disabled?: boolean;
   icon?: ReactNode;
-  iconPosition?: "left" | "right";
-  type: "basic" | "start";
+  iconPosition?: IconPosition;
+  type?: ButtonType;
 }
 
 interface TypeStyles {
-  basic: string;
-  start: string;
+  primary: string;
+  success: string;
+}
+
+export enum ButtonType {
+  Primary = "primary",
+  Success = "success",
+}
+
+export enum IconPosition {
+  Left = "left",
+  Right = "right",
 }
 
 const typeStyles: TypeStyles = {
-  basic: "bg-blue-500 hover:bg-blue-600",
-  start: "bg-green-600 hover:bg-green-700",
+  primary: "bg-blue-500 hover:bg-blue-600",
+  success: "bg-green-600 hover:bg-green-700",
 };
 
 export const Button = ({
-  text,
+  children,
   onClick,
-  className = "",
   disabled,
   icon,
-  iconPosition = "left",
-  type = "basic",
+  iconPosition = IconPosition.Left,
+  type = ButtonType.Primary,
 }: ButtonProps) => {
   return (
     <button
@@ -36,11 +44,11 @@ export const Button = ({
         disabled
           ? `${typeStyles[type]} opacity-50 cursor-not-allowed`
           : typeStyles[type]
-      } ${className}`}
+      }`}
       disabled={disabled}
     >
       {icon && iconPosition === "left" && <span className="mr-2">{icon}</span>}
-      <span>{text}</span>
+      <span>{children}</span>
       {icon && iconPosition === "right" && <span className="ml-2">{icon}</span>}
     </button>
   );
