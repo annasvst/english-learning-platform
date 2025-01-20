@@ -49,7 +49,7 @@ export const Button = ({
     >
       {icon && iconPosition === IconPosition.Left && <span className="mr-2">{icon}</span>}
       <span>{children}</span>
-      {icon && iconPosition === "right" && <span className="ml-2">{icon}</span>}
+      {icon && iconPosition === IconPosition.Right && <span className="ml-2">{icon}</span>}
     </button>
   );
 };
