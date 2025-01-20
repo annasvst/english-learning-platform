@@ -47,7 +47,7 @@ export const Button = ({
       }`}
       disabled={disabled}
     >
-      {icon && iconPosition === "left" && <span className="mr-2">{icon}</span>}
+      {icon && iconPosition === IconPosition.Left && <span className="mr-2">{icon}</span>}
       <span>{children}</span>
       {icon && iconPosition === "right" && <span className="ml-2">{icon}</span>}
     </button>
