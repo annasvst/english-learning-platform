@@ -9,11 +9,6 @@ interface ButtonProps {
   type?: ButtonType;
 }
 
-interface TypeStyles {
-  primary: string;
-  success: string;
-}
-
 export enum ButtonType {
   Primary = "primary",
   Success = "success",
@@ -24,7 +19,7 @@ export enum IconPosition {
   Right = "right",
 }
 
-const typeStyles: TypeStyles = {
+const typeStyles = {
   primary: "bg-blue-500 hover:bg-blue-600",
   success: "bg-green-600 hover:bg-green-700",
 };
@@ -47,9 +42,13 @@ export const Button = ({
       }`}
       disabled={disabled}
     >
-      {icon && iconPosition === IconPosition.Left && <span className="mr-2">{icon}</span>}
+      {icon && iconPosition === IconPosition.Left && (
+        <span className="mr-2">{icon}</span>
+      )}
       <span>{children}</span>
-      {icon && iconPosition === IconPosition.Right && <span className="ml-2">{icon}</span>}
+      {icon && iconPosition === IconPosition.Right && (
+        <span className="ml-2">{icon}</span>
+      )}
     </button>
   );
 };
