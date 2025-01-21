@@ -1,10 +1,10 @@
 'use client';
 import React, { createContext, useReducer, ReactNode, useContext } from 'react';
 
-interface TestAnswersState {
+export interface TestAnswersState {
   [section: string]: {
     [testId: string]: {
-      [questionIndex: string]: string;
+      [questionId: string]: string;
     };
   };
 }
@@ -14,8 +14,8 @@ interface Action {
   payload?: {
     section: string;
     testId: string;
-    questionIndex: string;
-    optionIndex: string;
+    questionId: string;
+    optionId: string;
   };
 }
 
@@ -24,14 +24,14 @@ const initialState: TestAnswersState = {};
 const testAnswersReducer = (state: TestAnswersState, action: Action): TestAnswersState => {
   switch (action.type) {
     case 'SET_ANSWER': {
-      const { section, testId, questionIndex, optionIndex } = action.payload!;
+      const { section, testId, questionId, optionId } = action.payload!;
       return {
         ...state,
         [section]: {
           ...state[section],
           [testId]: {
             ...state[section]?.[testId],
-            [questionIndex]: optionIndex,
+            [questionId]: optionId,
           },
         },
       };
