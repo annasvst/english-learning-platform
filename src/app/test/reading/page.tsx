@@ -7,8 +7,8 @@ import { thresholds } from "../thresholds";
 import { redirect } from "next/navigation";
 import { data } from "../data";
 import { useUserLevel } from "../UserLevelProvider";
-import { Level } from '../../lib/models/level';
-import { ReadingTest } from "../../lib/models/test";
+import { Level } from '../../_lib/models/level';
+import { ReadingTest } from "../../_lib/models/test";
 
 enum CombinedLevel {
   A1_A2 = "A1_A2",
