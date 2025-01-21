@@ -7,45 +7,26 @@ import { thresholds } from "../thresholds";
 import { redirect } from "next/navigation";
 import { data } from "../data";
 import { useUserLevel } from "../UserLevelProvider";
-import { Level } from '../../lib/models/level';
-import { ReadingTest } from "../../lib/models/test";
+import { Level } from "../../lib/models/level";
+import { ReadingTest } from "modules/app/lib/models/test";
+import { calculateTestScore } from "modules/app/utils";
+import { CombinedLevel } from "../../lib/models/level";
 
-enum CombinedLevel {
-  A1_A2 = "A1_A2",
-  B1_B2 = "B1_B2",
-  C1_C2 = "C1_C2",
-}
 
-interface Answers {
-  [questionId: string]: string;
-}
-
-function calculateTestScore(answers: Answers, test: ReadingTest) {
-  let correctAnswers = 0;
-  const totalQuestions = test.questions.length;
-
-  test.questions.forEach((question) => {
-    if (answers[question.id] === question.correctAnswer) {
-      correctAnswers += 1;
-    }
-  });
-
-  return correctAnswers / totalQuestions;
-}
 // TODO: Add error handling (e.g. if user passed this test already but navigates back in the browser)
 export default function ReadingTestHome() {
   const { state: testAnswersState } = useTestAnswers();
   const { dispatch } = useUserLevel();
 
   const [currentLevel, setCurrentLevel] = useState<CombinedLevel>(
-    CombinedLevel.B1_B2,
+    CombinedLevel.B1_B2
   );
   const [currentTest, setCurrentTest] = useState<ReadingTest>(
-    data.reading.B1_B2[0],
+    data.reading.B1_B2[0]
   );
 
-  function dispatchLevel (level: Level) {
-    dispatch({ type: 'SET_LEVEL', payload: { section: 'reading', level } });
+  function dispatchLevel(level: Level) {
+    dispatch({ type: "SET_LEVEL", payload: { section: "reading", level } });
   }
 
   function handleSubmitAnswers() {
@@ -87,8 +68,8 @@ export default function ReadingTestHome() {
         console.log("Current level is C1");
         redirect("/test/listening");
       }
-  };
-}
+    }
+  }
 
   return (
     <div className="min-h-screen p-8 pb-20 sm:p-20 bg-gray-100">
