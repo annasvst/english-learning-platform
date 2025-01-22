@@ -3,6 +3,7 @@
 import { useRouter } from 'next/navigation'
 import { useTestAnswers } from "../test/TestAnswersProvider";
 import Form from 'next/form';
+import { Button } from '../_components/Button';
 
 export const StartTestForm = () => {
     const { dispatch } = useTestAnswers();
@@ -44,11 +45,11 @@ export const StartTestForm = () => {
                 <Form className="mt-8 space-y-6" action={handleStartTest} id="form">
                     <div>
                         <label htmlFor="fullname" className="block font-medium text-gray-800">Full Name</label>
-                        <input type="text" id="fullname" name="fullname" className="w-full mt-2 p-3 border rounded-lg shadow-sm" placeholder="Enter your full name" required />
+                        <input type="text" id="fullname" name="fullname" className="w-full mt-2 p-3 border rounded shadow-sm" placeholder="Enter your full name" required />
                     </div>
                     <div>
                         <label htmlFor="email" className="block font-medium text-gray-800">Email Address</label>
-                        <input type="email" id="email" name="email" className="w-full mt-2 p-3 border rounded-lg shadow-sm" placeholder="Enter your email address" required />
+                        <input type="email" id="email" name="email" className="w-full mt-2 p-3 border rounded shadow-sm" placeholder="Enter your email address" required />
                     </div>
                     <div>
                         <label className="inline-flex items-center">
@@ -56,7 +57,10 @@ export const StartTestForm = () => {
                             <span className="ml-2 text-sm text-gray-700">I consent to the collection and processing of my personal information.</span>
                         </label>
                     </div>
-                    <button type="submit" className="w-full bg-teal-800 text-gray-50 font-bold py-3 p-10 rounded-lg shadow-md hover:bg-teal-700">Start Test</button>
+                    <div className='flex justify-center'>
+                      <Button type="submit" fullWidth>Start Test</Button>
+                    </div>
+                    
                 </Form>
             </div>
         </section>

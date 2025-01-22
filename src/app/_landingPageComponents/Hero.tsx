@@ -1,11 +1,15 @@
 import Image from "next/image";
+import Link from "next/link";
+import { Button, ButtonColor } from "../_components/Button";
 
 export const Hero = () => {
   return (
     <section className="bg-teal-800 text-gray-50 min-h-screen flex items-center py-20">
       <div className="container mx-auto flex flex-col md:flex-row items-center space-y-12 md:space-y-0 md:space-x-12">
         <div className="md:w-1/2 text-center md:text-left space-y-8">
-          <h1 className="text-7xl font-semibold">İngilizce Seviyenizi Test Edin</h1>
+          <h1 className="text-7xl font-semibold">
+            İngilizce Seviyenizi Test Edin
+          </h1>
           <ul className="space-y-4">
             <li>
               <h2 className="text-2xl font-bold">Hızlı</h2>
@@ -24,12 +28,9 @@ export const Hero = () => {
               </p>
             </li>
           </ul>
-          <a
-            href="#form"
-            className="mt-6 inline-block bg-red-300 text-red-900 font-bold py-3 px-8 rounded-lg shadow-md hover:bg-red-400"
-          >
-            Teste Başla
-          </a>
+          <Button color={ButtonColor.Accent}>
+            <Link href="#form">Teste Başla</Link>
+          </Button>
         </div>
         <div className="w-full md:w-1/2">
           <Image

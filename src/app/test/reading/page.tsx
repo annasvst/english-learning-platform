@@ -1,5 +1,5 @@
 "use client";
-import { Button, ButtonType } from "modules/app/components/Button";
+import { Button, ButtonColor } from "modules/app/_components/Button";
 
 import { ReadingTestComponent } from "./ReadingTestComponent";
 import { useState } from "react";
@@ -97,7 +97,7 @@ export default function ReadingTestHome() {
         <h1 className="text-3xl font-bold mb-8 text-center">Reading test</h1>
         <ReadingTestComponent key={currentTest.id} data={currentTest} />
 
-        <div className="mt-8 text-center">
+        <div className="mt-8 flex justify-center">
           <Button
             onClick={handleSubmitAnswers}
           >

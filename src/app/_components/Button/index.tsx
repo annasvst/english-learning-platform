@@ -6,12 +6,15 @@ interface ButtonProps {
   disabled?: boolean;
   icon?: ReactNode;
   iconPosition?: IconPosition;
-  type?: ButtonType;
+  color?: ButtonColor;
+  fullWidth?: boolean;
+  type?: 'submit' | 'reset' | 'button';
 }
 
-export enum ButtonType {
+export enum ButtonColor {
   Primary = "primary",
   Success = "success",
+  Accent = "accent",
 }
 
 export enum IconPosition {
@@ -20,8 +23,9 @@ export enum IconPosition {
 }
 
 const typeStyles = {
-  primary: "bg-blue-500 hover:bg-blue-600",
-  success: "bg-green-600 hover:bg-green-700",
+  primary: "bg-teal-800 hover:bg-teal-700 text-gray-50",
+  accent: "bg-red-300 hover:bg-red-400 text-red-900",
+  success: "bg-green-600 hover:bg-green-700 text-gray-50",
 };
 
 export const Button = ({
@@ -30,17 +34,20 @@ export const Button = ({
   disabled,
   icon,
   iconPosition = IconPosition.Left,
-  type = ButtonType.Primary,
+  color = ButtonColor.Primary,
+  fullWidth = false,
+  type,
 }: ButtonProps) => {
   return (
     <button
       onClick={onClick}
-      className={`flex items-center justify-center space-x-2 px-4 py-2 rounded shadow transition-all duration-300 ease-in-out text-white ${
+      className={`${fullWidth && 'w-full'} flex items-center justify-center space-x-2 px-6 py-2 rounded shadow transition-all duration-300 ease-in-out font-bold ${
         disabled
-          ? `${typeStyles[type]} opacity-50 cursor-not-allowed`
-          : typeStyles[type]
+          ? `${typeStyles[color]} opacity-50 cursor-not-allowed`
+          : typeStyles[color]
       }`}
       disabled={disabled}
+      type={type}
     >
       {icon && iconPosition === IconPosition.Left && (
         <span className="mr-2">{icon}</span>

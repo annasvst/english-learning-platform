@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Button } from "modules/app/components/Button";
+import { Button } from "modules/app/_components/Button";
 
 export default function grammarTest() {
   return (

@@ -15,7 +15,7 @@ export const ReadingTestComponent: React.FC<ReadingTestComponentProps> = ({ data
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-6 bg-white rounded-lg">
+    <div className="max-w-4xl mx-auto p-6 bg-white rounded">
       <h2 className="text-2xl font-bold mb-4">{data.title}</h2>
       <p className="text-gray-700 mb-6">{data.text}</p>
       <div>
