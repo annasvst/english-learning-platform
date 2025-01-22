@@ -1,4 +1,5 @@
 "use client";
+import { Button, ButtonType } from "modules/app/components/Button";
 
 import { ReadingTestComponent } from "./ReadingTestComponent";
 import { useState } from "react";
@@ -97,12 +98,11 @@ export default function ReadingTestHome() {
         <ReadingTestComponent key={currentTest.id} data={currentTest} />
 
         <div className="mt-8 text-center">
-          <button
+          <Button
             onClick={handleSubmitAnswers}
-            className="px-4 py-2 bg-blue-500 text-white rounded shadow hover:bg-blue-600 transition-colors"
           >
             Submit answers
-          </button>
+          </Button>
         </div>
       </main>
     </div>
