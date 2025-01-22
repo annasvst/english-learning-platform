@@ -20,7 +20,7 @@ export default function Result() {
         <p>Reading: {readingLevel}</p>
         <p>Listening: {listeningLevel}</p>
         <p>Writing: {writingLevel}</p>
-        <Button type={ButtonColor.Success}>
+        <Button color={ButtonColor.Primary}>
           <Link href="/">Return to the main page</Link>
         </Button>
       </main>

@@ -8,7 +8,7 @@ export const Hero = () => {
       <div className="container mx-auto flex flex-col md:flex-row items-center space-y-12 md:space-y-0 md:space-x-12">
         <div className="md:w-1/2 text-center md:text-left space-y-8">
           <h1 className="text-7xl font-semibold">
-            İngilizce Seviyenizi Test Edin
+            İngilizce Seviyeni Öğren  
           </h1>
           <ul className="space-y-4">
             <li>

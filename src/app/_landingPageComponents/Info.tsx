@@ -31,14 +31,14 @@ export const Info = () => {
         </p>
       </div>
 
-      <div className="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+      <div className="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 text-lg">
         {testInfoCards.map((card, index) => (
           <div
             key={index}
             className="rounded-lg p-10 shadow-md hover:shadow-xl transition-shadow duration-200 flex flex-col justify-between	"
           >
             <div>
-              <h3 className="text-xl font-semibold text-teal-800 mb-2">
+              <h3 className="text-2xl font-semibold text-teal-800 mb-2">
                 {card.title}
               </h3>
               <p className="text-gray-700 mb-4">{card.description}</p>
