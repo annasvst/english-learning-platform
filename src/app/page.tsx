@@ -1,14 +1,15 @@
-'use client';
+"use client";
 
 import { redirect } from "next/navigation";
 import { useTestAnswers } from "./test/TestAnswersProvider";
+import { Button, ButtonType } from "./components/Button";
 
 export default function Home() {
   const { dispatch } = useTestAnswers();
 
   const handleStartTest = () => {
-    dispatch({ type: 'RESET_ANSWERS' });
-    redirect('/test/reading');
+    dispatch({ type: "RESET_ANSWERS" });
+    redirect("/test/reading");
   };
 
   return (
@@ -16,7 +17,9 @@ export default function Home() {
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
         <h1>Welcome to the test</h1>
         <p>Instructions to be here</p>
-        <button onClick={handleStartTest} className="px-4 py-2 bg-green-600 text-white rounded shadow hover:bg-green-600 transition-colors">Start test</button>
+        <Button onClick={handleStartTest} type={ButtonType.Success}>
+          Start test
+        </Button>
       </main>
     </div>
   );

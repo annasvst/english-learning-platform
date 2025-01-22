@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { Button, ButtonType } from "modules/app/components/Button";
 import { useUserLevel } from "../UserLevelProvider";
 
 export default function Result() {
@@ -19,12 +20,9 @@ export default function Result() {
         <p>Reading: {readingLevel}</p>
         <p>Listening: {listeningLevel}</p>
         <p>Writing: {writingLevel}</p>
-        <Link
-          href="/"
-          className="px-4 py-2 bg-blue-500 text-white rounded-lg shadow hover:bg-blue-600 transition-colors"
-        >
-          Return to the main page
-        </Link>
+        <Button type={ButtonType.Success}>
+          <Link href="/">Return to the main page</Link>
+        </Button>
       </main>
     </div>
   );
