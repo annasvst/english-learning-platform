@@ -1,8 +1,8 @@
 export const Features = () => {
   return (
     <section id="features" className="py-40 bg-gray-100 dark:bg-gray-700">
-        <div className="container mx-auto text-center">
-            <h2 className="text-4xl text-gray-700 dark:gray-50 font-bold">Why Choose Us?</h2>
+        <div className="container max-w-screen-2xl mx-auto text-center">
+            <h2 className="text-4xl text-gray-700 dark:text-gray-50 font-bold">Why Choose Us?</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
                 <div className="bg-gray-50 p-10 rounded-lg shadow-md">
                     <h3 className="text-2xl font-semibold text-primary">Fast and Reliable</h3>
