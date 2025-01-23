@@ -8,7 +8,7 @@ interface ButtonProps {
   iconPosition?: IconPosition;
   color?: ButtonColor;
   fullWidth?: boolean;
-  size: "md" | "lg";
+  size?: "md" | "lg";
   type?: 'submit' | 'reset' | 'button';
 }
 
