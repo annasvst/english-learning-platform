@@ -7,7 +7,7 @@ interface FormErrorProps {
 export const FormError = ({ children }: FormErrorProps) => {
   return (
     <div>
-      <p className="text-sm text-red-600 my-2">{children}</p>
+      <p className="text-sm text-red-800 my-2">{children}</p>
     </div>
   );
 }

@@ -54,7 +54,7 @@ export const StartTestForm = () => {
     <section id="htmlForm" className="py-40 bg-gray-50">
       <div className="container mx-auto max-w-lg">
         <h2 className="text-4xl font-bold text-center text-primary text-gray-700">
-          Engilizce Seviyeni Öğren
+          İngilizce Seviyeni Öğren
         </h2>
         <form
           className="mt-8 space-y-6"
@@ -133,8 +133,7 @@ export const StartTestForm = () => {
               id="consent"
               register={{
                 ...register("consent", {
-                  required:
-                    "Bu alan zorunlu",
+                  required: "Bu alan zorunlu",
                 }),
               }}
               label="Kişisel bilgilerimin toplanması ve işlenmesine izin veriyorum."

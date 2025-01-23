@@ -1,5 +1,5 @@
 export const Info = () => {
-  const testInfoCards = [
+  const content = [
     {
       title: "Okuma",
       description:
@@ -21,30 +21,30 @@ export const Info = () => {
   ];
 
   return (
-    <section className="py-40 px-20">
+    <section className="py-40 px-20 bg-teal-800 text-teal-50">
       <div className="max-w-screen-md mx-auto text-center">
-        <h2 className="text-4xl text-gray-700 font-semibold">
+        <h2 className="text-4xl font-semibold">
           Testten Ne Beklemelisiniz
         </h2>
-        <p className="text-xl text-gray-600 my-8">
+        <p className="text-xl text-teal-100 my-8">
         Test üç bölümden oluşur: Okuma, Dinleme ve Dilbilgisi. Her bölümde 10 soruluk bir veya iki test bulunur.
         </p>
       </div>
 
       <div className="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 text-lg">
-        {testInfoCards.map((card, index) => (
+        {content.map((item, index) => (
           <div
             key={index}
-            className="rounded-lg p-10 shadow-md hover:shadow-xl transition-shadow duration-200 flex flex-col justify-between	"
+            className="bg-gray-50 rounded-lg p-10 shadow-md hover:shadow-xl transition-shadow duration-200 flex flex-col justify-between	"
           >
             <div>
               <h3 className="text-2xl font-semibold text-teal-800 mb-2">
-                {card.title}
+                {item.title}
               </h3>
-              <p className="text-gray-700 mb-4">{card.description}</p>
+              <p className="text-gray-700 mb-4">{item.description}</p>
             </div>
             <p className="text-gray-700">
-              <span className="font-semibold">Format:</span> {card.format}
+              <span className="font-semibold">Format:</span> {item.format}
             </p>
           </div>
         ))}

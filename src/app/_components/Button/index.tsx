@@ -8,6 +8,7 @@ interface ButtonProps {
   iconPosition?: IconPosition;
   color?: ButtonColor;
   fullWidth?: boolean;
+  size: "md" | "lg";
   type?: 'submit' | 'reset' | 'button';
 }
 
@@ -23,10 +24,15 @@ export enum IconPosition {
 }
 
 const typeStyles = {
-  primary: "bg-teal-800 hover:bg-teal-700 text-gray-50",
-  accent: "bg-red-300 hover:bg-red-400 text-red-900",
-  success: "bg-green-600 hover:bg-green-700 text-gray-50",
+  primary: "bg-teal-800 hover:bg-teal-700 text-teal-50",
+  accent: "bg-red-200 hover:bg-red-300 text-red-900",
+  success: "bg-green-600 hover:bg-green-700 text-green-50",
 };
+
+const sizeStyles = {
+  md: "py-2 px-6",
+  lg: "py-4 px-8",
+}
 
 export const Button = ({
   children,
@@ -36,12 +42,13 @@ export const Button = ({
   iconPosition = IconPosition.Left,
   color = ButtonColor.Primary,
   fullWidth = false,
+  size = 'md',
   type,
 }: ButtonProps) => {
   return (
     <button
       onClick={onClick}
-      className={`${fullWidth && 'w-full'} flex items-center justify-center space-x-2 px-6 py-2 rounded shadow transition-all duration-300 ease-in-out font-bold ${
+      className={`${fullWidth && 'w-full'} ${sizeStyles[size]} flex items-center justify-center space-x-2 rounded shadow transition-all duration-300 ease-in-out font-bold ${
         disabled
           ? `${typeStyles[color]} opacity-50 cursor-not-allowed`
           : typeStyles[color]
