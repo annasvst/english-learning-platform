@@ -1,3 +1,5 @@
+import { BookOpenText, Headphones, Lectern } from "@phosphor-icons/react/dist/ssr";
+
 export const Info = () => {
   const content = [
     {
@@ -5,18 +7,23 @@ export const Info = () => {
       description:
         "Size kısa pasajlar verilecek ve ardından anlama yeteneğinizi test etmek için çoktan seçmeli veya kısa cevaplı sorular sorulacak.",
       format: "Her biri 10 sorudan oluşan 1-2 test.",
+      icon: <BookOpenText size={42} />
+
+
     },
     {
       title: "Dinleme",
       description:
         "Kısa ses kliplerini veya konuşmaları dinleyecek ve ardından anlayışınızı kontrol etmek için soruları cevaplayacaksınız.",
       format: "Her biri 10 sorudan oluşan 1-2 test.",
+      icon: <Headphones size={42} />
     },
     {
       title: "Dilbilgisi",
       description:
         "Kısa alıştırmalarla temel dilbilgisi kavramları ve doğru kullanım konusunda test edileceksiniz.",
       format: "Her biri 10 sorudan oluşan 1-2 test.",
+      icon: <Lectern size={42} />
     },
   ];
 
@@ -38,6 +45,7 @@ export const Info = () => {
             className="bg-gray-50 rounded-lg p-10 shadow-md hover:shadow-xl transition-shadow duration-200 flex flex-col justify-between	"
           >
             <div>
+              <div className="text-teal-800 mb-4">{item.icon}</div>
               <h3 className="text-2xl font-semibold text-teal-800 mb-2">
                 {item.title}
               </h3>
