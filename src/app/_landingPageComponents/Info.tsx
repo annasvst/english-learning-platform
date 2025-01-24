@@ -28,7 +28,7 @@ export const Info = () => {
   ];
 
   return (
-    <section className="py-40 px-20 bg-teal-800 text-teal-50">
+    <section className="py-40 px-8 md:px-20 bg-teal-800 text-teal-50">
       <div className="max-w-screen-md mx-auto text-center">
         <h2 className="text-4xl font-semibold">
           Testten Ne Beklemelisiniz

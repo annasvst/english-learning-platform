@@ -20,7 +20,7 @@ export const Features = () => {
     },
   ];
   return (
-    <ul className="mx-auto max-w-fit py-40 space-y-12">
+    <ul className="mx-auto max-w-fit py-40 px-8 md:px-20 space-y-12">
       {content.map((item, index) => (
         <li key={index} className="flex items-center space-x-12">
           {item.icon}

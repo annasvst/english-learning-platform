@@ -51,7 +51,7 @@ export const StartTestForm = () => {
   };
 
   return (
-    <section id="htmlForm" className="py-40 bg-gray-50">
+    <section id="htmlForm" className="py-40 px-8 md:px-20 bg-gray-50">
       <div className="container mx-auto max-w-lg">
         <h2 className="text-4xl font-bold text-center text-primary text-gray-700">
           İngilizce Seviyeni Öğren
