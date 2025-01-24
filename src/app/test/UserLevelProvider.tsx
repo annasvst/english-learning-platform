@@ -1,6 +1,6 @@
 'use client';
 import React, { createContext, useReducer, ReactNode, useContext } from 'react';
-import { Level } from '../lib/models/level';
+import { Level } from '../_lib/models/level';
 
 export interface UserLevelState {
   reading?: Level;

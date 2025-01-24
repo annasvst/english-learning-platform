@@ -1,4 +1,4 @@
-import { GrammarTest, ListeningTest, ReadingTest } from "../lib/models/test";
+import { GrammarTest, ListeningTest, ReadingTest } from "../_lib/models/test";
 
 export interface Data {
   reading: {
