@@ -3,7 +3,7 @@ import { FormError } from "./FormError";
 
 interface CheckboxProps {
   id: string;
-  label: string;
+  label: React.ReactNode;
   register: ReturnType<UseFormRegister<FieldValues>>;
   error?: string;
 }
@@ -12,8 +12,8 @@ interface CheckboxProps {
 export const Checkbox: React.FC<CheckboxProps> = ({ id, label, register, error }) => {
   return (
     <div className="flex flex-col gap-2">
-    <div className="flex items-center gap-3">
-      <div className="group grid size-4 grid-cols-1">
+    <div className="flex items-center gap-4">
+      <div className="group grid size-4 grid-cols-1 shrink-0">
         <input
           type="checkbox"
           id={id}
