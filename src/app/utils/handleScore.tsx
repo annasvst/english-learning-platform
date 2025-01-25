@@ -1,6 +1,6 @@
-import { CombinedLevel } from "../lib/models/level";
+import { CombinedLevel } from "../_lib/models/level";
 import { thresholds } from "../test/thresholds";
-import { Level } from "../lib/models/level";
+import { Level } from "../_lib/models/level";
 import { Data } from "../test/data";
 import { Test } from "../lib/models/test";
 

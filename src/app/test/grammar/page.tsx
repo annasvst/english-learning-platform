@@ -6,12 +6,13 @@ import { redirect } from "next/navigation";
 import { useTestAnswers } from "../TestAnswersProvider";
 import { useUserLevel } from "../UserLevelProvider";
 import { data } from "../data";
-import { CombinedLevel } from "modules/app/lib/models/level";
-import { Level } from "modules/app/lib/models/level";
+import { CombinedLevel } from "modules/app/_lib/models/level";
+import { Level } from "modules/app/_lib/models/level";
 import { calculateTestScore } from "modules/app/utils/calculateTestScore";
 import { GrammarTestComponent } from "./GrammarTestComponent";
 import { handleScore } from "modules/app/utils/handleScore";
-import { GrammarTest, Test } from "modules/app/lib/models/test";
+import { GrammarTest } from "modules/app/_lib/models/test";
+import { Button } from "modules/app/_components/Button";
 
 export default function GrammarTestHome() {
   const { state: testAnswersState } = useTestAnswers();
@@ -47,12 +48,7 @@ export default function GrammarTestHome() {
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
         <h1>Welcome to the grammar test</h1>
         <GrammarTestComponent key={currentTest.id} data={currentTest} />
-        <button
-          onClick={handleSubmitAnswers}
-          className="px-4 py-2 bg-blue-500 text-white rounded shadow hover:bg-blue-600 transition-colors"
-        >
-          Submit Answers
-        </button>
+        <Button onClick={handleSubmitAnswers}>Submit Answers</Button>
       </main>
     </div>
   );

@@ -1,15 +1,15 @@
 "use client";
-
+import { Button, ButtonColor } from "modules/app/_components/Button";
 import { ReadingTestComponent } from "./ReadingTestComponent";
 import { useState } from "react";
 import { useTestAnswers } from "../TestAnswersProvider";
 import { redirect } from "next/navigation";
 import { data } from "../data";
 import { useUserLevel } from "../UserLevelProvider";
-import { Level } from "../../lib/models/level";
-import { ReadingTest } from "modules/app/lib/models/test";
+import { Level } from "../../_lib/models/level";
+import { ReadingTest } from "modules/app/_lib/models/test";
 import { calculateTestScore } from "modules/app/utils/calculateTestScore";
-import { CombinedLevel } from "../../lib/models/level";
+import { CombinedLevel } from "../../_lib/models/level";
 import { handleScore } from "modules/app/utils/handleScore";
 
 // TODO: Add error handling (e.g. if user passed this test already but navigates back in the browser)
@@ -48,13 +48,8 @@ export default function ReadingTestHome() {
         <h1 className="text-3xl font-bold mb-8 text-center">Reading test</h1>
         <ReadingTestComponent key={currentTest.id} data={currentTest} />
 
-        <div className="mt-8 text-center">
-          <button
-            onClick={handleSubmitAnswers}
-            className="px-4 py-2 bg-blue-500 text-white rounded shadow hover:bg-blue-600 transition-colors"
-          >
-            Submit answers
-          </button>
+        <div className="mt-8 flex justify-center">
+          <Button onClick={handleSubmitAnswers}>Submit answers</Button>
         </div>
       </main>
     </div>

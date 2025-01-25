@@ -1,4 +1,4 @@
-import { ReadingTest } from "modules/app/lib/models/test";
+import { ReadingTest } from "modules/app/_lib/models/test";
 
 export const readingPassages: ReadingTest[] = [
   {
