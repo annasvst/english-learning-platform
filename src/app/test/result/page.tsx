@@ -9,7 +9,6 @@ export default function Result() {
 
   const readingLevel = state.reading;
   const listeningLevel = state.listening;
-  const writingLevel = state.writing;
   const grammarLevel = state.grammar;
 
   return (
@@ -19,7 +18,6 @@ export default function Result() {
         <h2>Your result</h2>
         <p>Reading: {readingLevel}</p>
         <p>Listening: {listeningLevel}</p>
-        <p>Writing: {writingLevel}</p>
         <p>Grammar: {grammarLevel}</p>
         <Link
           href="/"

@@ -3,15 +3,14 @@
 import { ReadingTestComponent } from "./ReadingTestComponent";
 import { useState } from "react";
 import { useTestAnswers } from "../TestAnswersProvider";
-import { thresholds } from "../thresholds";
 import { redirect } from "next/navigation";
 import { data } from "../data";
 import { useUserLevel } from "../UserLevelProvider";
 import { Level } from "../../lib/models/level";
 import { ReadingTest } from "modules/app/lib/models/test";
-import { calculateTestScore } from "modules/app/utils";
+import { calculateTestScore } from "modules/app/utils/calculateTestScore";
 import { CombinedLevel } from "../../lib/models/level";
-
+import { handleScore } from "modules/app/utils/handleScore";
 
 // TODO: Add error handling (e.g. if user passed this test already but navigates back in the browser)
 export default function ReadingTestHome() {
@@ -32,43 +31,15 @@ export default function ReadingTestHome() {
   function handleSubmitAnswers() {
     const currentAnswers = testAnswersState.reading[currentTest.id];
     const score = calculateTestScore(currentAnswers, currentTest);
-    if (currentLevel === CombinedLevel.B1_B2) {
-      if (score >= thresholds.B1_B2.high) {
-        setCurrentLevel(CombinedLevel.C1_C2);
-        setCurrentTest(data.reading.C1_C2[0]);
-      } else if (score < thresholds.B1_B2.low) {
-        setCurrentLevel(CombinedLevel.A1_A2);
-        setCurrentTest(data.reading.A1_A2[0]);
-      } else if (score >= thresholds.B1_B2.mid.high) {
-        dispatchLevel(Level.B2);
-        console.log("Current level is B2");
-        redirect("/test/listening");
-      } else if (score < thresholds.B1_B2.mid.high) {
-        dispatchLevel(Level.B1);
-        console.log("Current level is B1");
-        redirect("/test/listening");
-      }
-    } else if (currentLevel === CombinedLevel.A1_A2) {
-      if (score >= thresholds.A1_A2.high) {
-        dispatchLevel(Level.A2);
-        console.log("Current level is A2");
-        redirect("/test/listening");
-      } else if (score < thresholds.A1_A2.high) {
-        dispatchLevel(Level.A1);
-        console.log("Current level is A1");
-        redirect("/test/listening");
-      }
-    } else if (currentLevel === CombinedLevel.C1_C2) {
-      if (score >= thresholds.C1_C2.high) {
-        dispatchLevel(Level.C2);
-        console.log("Current level is C2");
-        redirect("/test/listening");
-      } else if (score < thresholds.C1_C2.high) {
-        dispatchLevel(Level.C1);
-        console.log("Current level is C1");
-        redirect("/test/listening");
-      }
-    }
+    handleScore(
+      score,
+      currentLevel,
+      dispatchLevel,
+      () => redirect("/test/listening"),
+      setCurrentLevel,
+      setCurrentTest,
+      data.reading
+    );
   }
 
   return (

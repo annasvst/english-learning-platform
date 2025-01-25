@@ -16,3 +16,4 @@ export function calculateTestScore(answers: Answers, test: Test) {
 
   return correctAnswers / totalQuestions;
 }
+

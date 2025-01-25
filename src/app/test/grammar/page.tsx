@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useState } from "react";
 import { redirect } from "next/navigation";
 
@@ -8,13 +7,13 @@ import { useTestAnswers } from "../TestAnswersProvider";
 import { useUserLevel } from "../UserLevelProvider";
 import { data } from "../data";
 import { CombinedLevel } from "modules/app/lib/models/level";
-import { GrammarTest } from "modules/app/lib/models/test";
 import { Level } from "modules/app/lib/models/level";
-import { calculateTestScore } from "modules/app/utils";
-import { thresholds } from "../thresholds";
+import { calculateTestScore } from "modules/app/utils/calculateTestScore";
 import { GrammarTestComponent } from "./GrammarTestComponent";
+import { handleScore } from "modules/app/utils/handleScore";
+import { GrammarTest, Test } from "modules/app/lib/models/test";
 
-export default function grammarTest() {
+export default function GrammarTestHome() {
   const { state: testAnswersState } = useTestAnswers();
   const { dispatch } = useUserLevel();
 
@@ -32,43 +31,15 @@ export default function grammarTest() {
   function handleSubmitAnswers() {
     const currentAnswers = testAnswersState.grammar[currentTest.id];
     const score = calculateTestScore(currentAnswers, currentTest);
-    if (currentLevel === CombinedLevel.B1_B2) {
-      if (score >= thresholds.B1_B2.high) {
-        setCurrentLevel(CombinedLevel.C1_C2);
-        setCurrentTest(data.grammar.C1_C2[0]);
-      } else if (score < thresholds.B1_B2.low) {
-        setCurrentLevel(CombinedLevel.A1_A2);
-        setCurrentTest(data.grammar.A1_A2[0]);
-      } else if (score >= thresholds.B1_B2.mid.high) {
-        dispatchLevel(Level.B2);
-        console.log("Current level is B2");
-        redirect("/test/result");
-      } else if (score < thresholds.B1_B2.mid.high) {
-        dispatchLevel(Level.B1);
-        console.log("Current level is B1");
-        redirect("/test/result");
-      }
-    } else if (currentLevel === CombinedLevel.A1_A2) {
-      if (score >= thresholds.A1_A2.high) {
-        dispatchLevel(Level.A2);
-        console.log("Current level is A2");
-        redirect("/test/result");
-      } else if (score < thresholds.A1_A2.high) {
-        dispatchLevel(Level.A1);
-        console.log("Current level is A1");
-        redirect("/test/result");
-      }
-    } else if (currentLevel === CombinedLevel.C1_C2) {
-      if (score >= thresholds.C1_C2.high) {
-        dispatchLevel(Level.C2);
-        console.log("Current level is C2");
-        redirect("/test/result");
-      } else if (score < thresholds.C1_C2.high) {
-        dispatchLevel(Level.C1);
-        console.log("Current level is C1");
-        redirect("/test/result");
-      }
-    }
+    handleScore(
+      score,
+      currentLevel,
+      dispatchLevel,
+      () => redirect("/test/result"),
+      setCurrentLevel,
+      setCurrentTest,
+      data.grammar
+    );
   }
 
   return (
