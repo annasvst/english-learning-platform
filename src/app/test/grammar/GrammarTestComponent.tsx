@@ -2,7 +2,7 @@
 
 import { GrammarTest } from "modules/app/_lib/models/test";
 import { useTestAnswers } from "../TestAnswersProvider";
-import { Test } from "modules/app/lib/models/test";
+import { Test } from "modules/app/_lib/models/test";
 
 interface GrammarTestComponentProps {
   data: GrammarTest;
