@@ -2,7 +2,7 @@ import { CombinedLevel } from "../_lib/models/level";
 import { thresholds } from "../test/thresholds";
 import { Level } from "../_lib/models/level";
 import { Data } from "../test/data";
-import { Test } from "../lib/models/test";
+import { Test } from "../_lib/models/test";
 
 export function handleScore(
   score: number,
