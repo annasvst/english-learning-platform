@@ -1,4 +1,4 @@
-import { Test } from "../lib/models/test";
+import { Test } from "../_lib/models/test";
 
 interface Answers {
   [questionId: string]: string;
