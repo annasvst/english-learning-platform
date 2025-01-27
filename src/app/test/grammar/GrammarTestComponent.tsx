@@ -1,6 +1,6 @@
 "use client";
 
-import { GrammarTest } from "modules/app/lib/models/test";
+import { GrammarTest } from "modules/app/_lib/models/test";
 import { useTestAnswers } from "../TestAnswersProvider";
 import { Test } from "modules/app/lib/models/test";
 
