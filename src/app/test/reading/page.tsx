@@ -1,5 +1,5 @@
 "use client";
-import { Button, ButtonColor } from "modules/app/_components/Button";
+import { Button } from "modules/app/_components/Button";
 
 import { ReadingTestComponent } from "./ReadingTestComponent";
 import { useState } from "react";

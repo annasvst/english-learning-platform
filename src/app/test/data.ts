@@ -596,9 +596,419 @@ export const data: Data = {
     ],
   },
   listening: {
-    A1_A2: [],
-    B1_B2: [],
-    C1_C2: [],
+    A1_A2: [
+      {
+        id: "uuid-a1-a2-test",
+        title: "A1–A2 Listening Test",
+        audioUrl: "/audio/a1a2-test.mp3",
+        questions: [
+          {
+            id: "uuid-jane-q1",
+            title: "What is the teacher's name?",
+            options: [
+              { id: "uuid-jane-q1-optA", title: "Mr. Smith" },
+              { id: "uuid-jane-q1-optB", title: "Mr. Taylor" },
+              { id: "uuid-jane-q1-optC", title: "Mr. Brown" },
+              { id: "uuid-jane-q1-optD", title: "Mr. John" },
+            ],
+            correctAnswer: "uuid-jane-q1-optB",
+          },
+          {
+            id: "uuid-jane-q2",
+            title: "What problem does Jane have?",
+            options: [
+              { id: "uuid-jane-q2-optA", title: "She is late for class" },
+              { id: "uuid-jane-q2-optB", title: "She forgot her lunch" },
+              { id: "uuid-jane-q2-optC", title: "She left her English book at home" },
+              { id: "uuid-jane-q2-optD", title: "She doesn’t have a pen" },
+            ],
+            correctAnswer: "uuid-jane-q2-optC",
+          },
+          {
+            id: "uuid-jane-q3",
+            title: "Where did Jane leave her English book?",
+            options: [
+              { id: "uuid-jane-q3-optA", title: "In the library" },
+              { id: "uuid-jane-q3-optB", title: "At home" },
+              { id: "uuid-jane-q3-optC", title: "In her locker" },
+              { id: "uuid-jane-q3-optD", title: "In the car" },
+            ],
+            correctAnswer: "uuid-jane-q3-optB",
+          },
+          {
+            id: "uuid-jane-q4",
+            title: "Did Jane read the text online successfully?",
+            options: [
+              { id: "uuid-jane-q4-optA", title: "Yes, she finished it" },
+              { id: "uuid-jane-q4-optB", title: "She only read half of it" },
+              { id: "uuid-jane-q4-optC", title: "No, her internet was not working well" },
+              { id: "uuid-jane-q4-optD", title: "She didn't need to read it online" },
+            ],
+            correctAnswer: "uuid-jane-q4-optC",
+          },
+          {
+            id: "uuid-jane-q5",
+            title: "Why couldn't Jane finish her homework?",
+            options: [
+              { id: "uuid-jane-q5-optA", title: "She didn’t know the deadline" },
+              { id: "uuid-jane-q5-optB", title: "She lost her homework" },
+              { id: "uuid-jane-q5-optC", title: "She forgot her teacher’s instructions" },
+              { id: "uuid-jane-q5-optD", title: "She left her book at home and her internet wasn’t working" },
+            ],
+            correctAnswer: "uuid-jane-q5-optD",
+          },
+          {
+            id: "uuid-jane-q6",
+            title: "When does Mr. Taylor say Jane can bring the book to class?",
+            options: [
+              { id: "uuid-jane-q6-optA", title: "Today" },
+              { id: "uuid-jane-q6-optB", title: "Tomorrow" },
+              { id: "uuid-jane-q6-optC", title: "Next week" },
+              { id: "uuid-jane-q6-optD", title: "He doesn't say" },
+            ],
+            correctAnswer: "uuid-jane-q6-optB",
+          },
+          {
+            id: "uuid-jane-q7",
+            title: "What does Mr. Taylor ask Jane to check on the school website?",
+            options: [
+              { id: "uuid-jane-q7-optA", title: "The schedule for next exam" },
+              { id: "uuid-jane-q7-optB", title: "A list of new vocabulary words" },
+              { id: "uuid-jane-q7-optC", title: "Her final grades" },
+              { id: "uuid-jane-q7-optD", title: "The class timetable" },
+            ],
+            correctAnswer: "uuid-jane-q7-optB",
+          },
+          {
+            id: "uuid-jane-q8",
+            title: "How many times does Jane need to write each vocabulary word?",
+            options: [
+              { id: "uuid-jane-q8-optA", title: "Two times" },
+              { id: "uuid-jane-q8-optB", title: "Three times" },
+              { id: "uuid-jane-q8-optC", title: "Five times" },
+              { id: "uuid-jane-q8-optD", title: "Just once" },
+            ],
+            correctAnswer: "uuid-jane-q8-optB",
+          },
+          {
+            id: "uuid-jane-q9",
+            title: "What subject does Mr. Taylor teach?",
+            options: [
+              { id: "uuid-jane-q9-optA", title: "Math" },
+              { id: "uuid-jane-q9-optB", title: "Science" },
+              { id: "uuid-jane-q9-optC", title: "English" },
+              { id: "uuid-jane-q9-optD", title: "History" },
+            ],
+            correctAnswer: "uuid-jane-q9-optC",
+          },
+          {
+            id: "uuid-jane-q10",
+            title: "How does Mr. Taylor say goodbye to Jane?",
+            options: [
+              { id: "uuid-jane-q10-optA", title: "Have a nice day!" },
+              { id: "uuid-jane-q10-optB", title: "See you later!" },
+              { id: "uuid-jane-q10-optC", title: "Good night!" },
+              { id: "uuid-jane-q10-optD", title: "Good luck!" },
+            ],
+            correctAnswer: "uuid-jane-q10-optA",
+          },
+        ]
+      }
+    ],
+    B1_B2: [
+      {
+        id: "uuid-b1-b2-test",
+        title: "B1–B2 Listening Test",
+        audioUrl: "/audio/b1b2-test.mp3",
+        questions: [
+          {
+            id: "uuid-b1b2-q1",
+            title: "What is the main topic of the presentation?",
+            options: [
+              { id: "uuid-b1b2-q1-optA", title: "Food safety" },
+              { id: "uuid-b1b2-q1-optB", title: "Sustainable living" },
+              { id: "uuid-b1b2-q1-optC", title: "Modern technology" },
+              { id: "uuid-b1b2-q1-optD", title: "Global politics" },
+            ],
+            correctAnswer: "uuid-b1b2-q1-optB",
+          },
+          {
+            id: "uuid-b1b2-q2",
+            title: "According to the speaker, what is one effective step to reduce environmental impact?",
+            options: [
+              { id: "uuid-b1b2-q2-optA", title: "Buying only imported products" },
+              { id: "uuid-b1b2-q2-optB", title: "Using single-use plastic items" },
+              { id: "uuid-b1b2-q2-optC", title: "Carrying reusable bags or bottles" },
+              { id: "uuid-b1b2-q2-optD", title: "Driving everywhere by yourself" },
+            ],
+            correctAnswer: "uuid-b1b2-q2-optC",
+          },
+          {
+            id: "uuid-b1b2-q3",
+            title: "Why does the speaker suggest buying local and seasonal food?",
+            options: [
+              { id: "uuid-b1b2-q3-optA", title: "It is always cheaper" },
+              { id: "uuid-b1b2-q3-optB", title: "It reduces transport and thus pollution" },
+              { id: "uuid-b1b2-q3-optC", title: "It tastes exactly the same as imported food" },
+              { id: "uuid-b1b2-q3-optD", title: "It comes with free delivery" },
+            ],
+            correctAnswer: "uuid-b1b2-q3-optB",
+          },
+          {
+            id: "uuid-b1b2-q4",
+            title: "Which transport method does the speaker mention as eco-friendly?",
+            options: [
+              { id: "uuid-b1b2-q4-optA", title: "Taking a private jet" },
+              { id: "uuid-b1b2-q4-optB", title: "Walking or cycling" },
+              { id: "uuid-b1b2-q4-optC", title: "Driving long distances alone" },
+              { id: "uuid-b1b2-q4-optD", title: "Using multiple small cars" },
+            ],
+            correctAnswer: "uuid-b1b2-q4-optB",
+          },
+          {
+            id: "uuid-b1b2-q5",
+            title: "What household tip does the speaker give to lower energy consumption?",
+            options: [
+              { id: "uuid-b1b2-q5-optA", title: "Leaving lights on at all times" },
+              { id: "uuid-b1b2-q5-optB", title: "Using air conditioning all day" },
+              { id: "uuid-b1b2-q5-optC", title: "Installing energy-efficient light bulbs" },
+              { id: "uuid-b1b2-q5-optD", title: "Running multiple fridges" },
+            ],
+            correctAnswer: "uuid-b1b2-q5-optC",
+          },
+          {
+            id: "uuid-b1b2-q6",
+            title: "Why does the speaker recommend unplugging devices when not in use?",
+            options: [
+              { id: "uuid-b1b2-q6-optA", title: "They break if you leave them plugged in" },
+              { id: "uuid-b1b2-q6-optB", title: "It’s the latest fashion trend" },
+              { id: "uuid-b1b2-q6-optC", title: "They still consume some electricity in standby mode" },
+              { id: "uuid-b1b2-q6-optD", title: "They won’t work otherwise" },
+            ],
+            correctAnswer: "uuid-b1b2-q6-optC",
+          },
+          {
+            id: "uuid-b1b2-q7",
+            title: "What does the speaker suggest if you have to drive?",
+            options: [
+              { id: "uuid-b1b2-q7-optA", title: "Carpool with neighbors or friends" },
+              { id: "uuid-b1b2-q7-optB", title: "Drive as fast as possible" },
+              { id: "uuid-b1b2-q7-optC", title: "Buy a sports car" },
+              { id: "uuid-b1b2-q7-optD", title: "Travel with no passengers" },
+            ],
+            correctAnswer: "uuid-b1b2-q7-optA",
+          },
+          {
+            id: "uuid-b1b2-q8",
+            title: "How can communities become more mindful of sustainability according to the talk?",
+            options: [
+              { id: "uuid-b1b2-q8-optA", title: "By keeping new ideas a secret" },
+              { id: "uuid-b1b2-q8-optB", title: "By strictly prohibiting discussions" },
+              { id: "uuid-b1b2-q8-optC", title: "By sharing eco-friendly tips with family and friends" },
+              { id: "uuid-b1b2-q8-optD", title: "By only reading about them" },
+            ],
+            correctAnswer: "uuid-b1b2-q8-optC",
+          },
+          {
+            id: "uuid-b1b2-q9",
+            title: "Which of the following is NOT mentioned in the monologue?",
+            options: [
+              { id: "uuid-b1b2-q9-optA", title: "Buying local produce" },
+              { id: "uuid-b1b2-q9-optB", title: "Cutting down on single-use plastic" },
+              { id: "uuid-b1b2-q9-optC", title: "Using renewable energy like solar panels" },
+              { id: "uuid-b1b2-q9-optD", title: "Sharing eco-friendly ideas with others" },
+            ],
+            correctAnswer: "uuid-b1b2-q9-optC",
+          },
+          {
+            id: "uuid-b1b2-q10",
+            title: "What is the speaker’s overall message?",
+            options: [
+              { id: "uuid-b1b2-q10-optA", title: "Small daily actions can make a big difference for the environment" },
+              { id: "uuid-b1b2-q10-optB", title: "We should ignore climate change" },
+              { id: "uuid-b1b2-q10-optC", title: "Only governments can prevent pollution" },
+              { id: "uuid-b1b2-q10-optD", title: "Sustainable living is too expensive to practice" },
+            ],
+            correctAnswer: "uuid-b1b2-q10-optA",
+          },
+        ]
+      }
+    ],
+    C1_C2: [
+      {
+        id: "uuid-c1-c2-test",
+        title: "C1–C2 Listening Test",
+        audioUrl: "/audio/c1c2-test.mp3",
+        questions: [
+          {
+            id: "uuid-c1c2-q1",
+            title: "What is the speaker's name?",
+            options: [
+              { id: "uuid-c1c2-q1-optA", title: "Dr. Marie Thompson" },
+              { id: "uuid-c1c2-q1-optB", title: "Dr. Morgan Phillips" },
+              { id: "uuid-c1c2-q1-optC", title: "Professor Andrew Carter" },
+              { id: "uuid-c1c2-q1-optD", title: "Ms. Angela Perez" },
+            ],
+            correctAnswer: "uuid-c1c2-q1-optB",
+          },
+          {
+            id: "uuid-c1c2-q2",
+            title: "Which event is the talk being presented at?",
+            options: [
+              { id: "uuid-c1c2-q2-optA", title: "Global Innovations Summit" },
+              { id: "uuid-c1c2-q2-optB", title: "International Climate Conference" },
+              { id: "uuid-c1c2-q2-optC", title: "AI for Social Good Forum" },
+              { id: "uuid-c1c2-q2-optD", title: "Annual Green Expo" },
+            ],
+            correctAnswer: "uuid-c1c2-q2-optA",
+          },
+          {
+            id: "uuid-c1c2-q3",
+            title:
+              "What primary topic does the speaker focus on during the presentation?",
+            options: [
+              { id: "uuid-c1c2-q3-optA", title: "Traditional fossil fuel economics" },
+              { id: "uuid-c1c2-q3-optB", title: "Convergence of AI and sustainable energy" },
+              { id: "uuid-c1c2-q3-optC", title: "Internet security regulations" },
+              { id: "uuid-c1c2-q3-optD", title: "Human resource management strategies" },
+            ],
+            correctAnswer: "uuid-c1c2-q3-optB",
+          },
+          {
+            id: "uuid-c1c2-q4",
+            title:
+              "According to the speaker, which factors do machine learning algorithms analyze to optimize energy systems?",
+            options: [
+              { id: "uuid-c1c2-q4-optA", title: "Only electrical wiring codes" },
+              { id: "uuid-c1c2-q4-optB", title: "Stock market data" },
+              {
+                id: "uuid-c1c2-q4-optC",
+                title: "Weather patterns, grid demand, and battery storage capacities",
+              },
+              { id: "uuid-c1c2-q4-optD", title: "Marketing and advertisement trends" },
+            ],
+            correctAnswer: "uuid-c1c2-q4-optC",
+          },
+          {
+            id: "uuid-c1c2-q5",
+            title:
+              "Which of the following is mentioned as a direct benefit of predictive modeling in energy production?",
+            options: [
+              {
+                id: "uuid-c1c2-q5-optA",
+                title: "Automatic repair of malfunctioning solar panels",
+              },
+              {
+                id: "uuid-c1c2-q5-optB",
+                title: "Reduction of short-term renewable energy projects",
+              },
+              {
+                id: "uuid-c1c2-q5-optC",
+                title: "Greater resilience of electric grids and lower operational costs",
+              },
+              {
+                id: "uuid-c1c2-q5-optD",
+                title: "Elimination of the need for battery storage altogether",
+              },
+            ],
+            correctAnswer: "uuid-c1c2-q5-optC",
+          },
+          {
+            id: "uuid-c1c2-q6",
+            title:
+              "What ethical concern does the speaker highlight regarding large-scale AI projects?",
+            options: [
+              {
+                id: "uuid-c1c2-q6-optA",
+                title: "Lack of any regulatory framework for scientific research",
+              },
+              {
+                id: "uuid-c1c2-q6-optB",
+                title: "Possibility of illegal wildlife trafficking",
+              },
+              {
+                id: "uuid-c1c2-q6-optC",
+                title: "Issues related to data privacy and consent",
+              },
+              {
+                id: "uuid-c1c2-q6-optD",
+                title: "High cost of hiring software developers",
+              },
+            ],
+            correctAnswer: "uuid-c1c2-q6-optC",
+          },
+          {
+            id: "uuid-c1c2-q7",
+            title:
+              "Why do some critics believe that AI training may negatively affect sustainability?",
+            options: [
+              {
+                id: "uuid-c1c2-q7-optA",
+                title: "Because it relies on outdated hardware and research",
+              },
+              {
+                id: "uuid-c1c2-q7-optB",
+                title: "Because it completely replaces human oversight",
+              },
+              {
+                id: "uuid-c1c2-q7-optC",
+                title: "Because expanding cloud computing infrastructure can use more energy",
+              },
+              {
+                id: "uuid-c1c2-q7-optD",
+                title: "Because it depends on cryptography and blockchain technology",
+              },
+            ],
+            correctAnswer: "uuid-c1c2-q7-optC",
+          },
+          {
+            id: "uuid-c1c2-q8",
+            title:
+              "Which phrase best describes the speaker’s recommended approach to AI in the energy sector?",
+            options: [
+              { id: "uuid-c1c2-q8-optA", title: "Maximize profits at all costs" },
+              { id: "uuid-c1c2-q8-optB", title: "Prioritize rapid deployment over governance" },
+              {
+                id: "uuid-c1c2-q8-optC",
+                title: "Adopt a balanced method that includes robust governance and ethical considerations",
+              },
+              { id: "uuid-c1c2-q8-optD", title: "Prohibit AI use in energy altogether" },
+            ],
+            correctAnswer: "uuid-c1c2-q8-optC",
+          },
+          {
+            id: "uuid-c1c2-q9",
+            title:
+              "What does the speaker suggest is the ultimate goal of integrating AI with sustainable energy?",
+            options: [
+              { id: "uuid-c1c2-q9-optA", title: "To replace human engineers completely" },
+              {
+                id: "uuid-c1c2-q9-optB",
+                title: "To accelerate innovation while protecting the planet and its inhabitants",
+              },
+              { id: "uuid-c1c2-q9-optC", title: "To maximize data collection at any cost" },
+              {
+                id: "uuid-c1c2-q9-optD",
+                title: "To prioritize only the financial benefits of AI integration",
+              },
+            ],
+            correctAnswer: "uuid-c1c2-q9-optB",
+          },
+          {
+            id: "uuid-c1c2-q10",
+            title:
+              "Which of the following best captures the tone of the speaker’s presentation?",
+            options: [
+              { id: "uuid-c1c2-q10-optA", title: "Alarmist and pessimistic" },
+              { id: "uuid-c1c2-q10-optB", title: "Strictly technical, avoiding ethical debates" },
+              { id: "uuid-c1c2-q10-optC", title: "Balanced, addressing both benefits and concerns" },
+              { id: "uuid-c1c2-q10-optD", title: "Informal and largely anecdotal" },
+            ],
+            correctAnswer: "uuid-c1c2-q10-optC",
+          },
+        ]
+      }
+    ],
   },
   grammar: {
     A1_A2: [],

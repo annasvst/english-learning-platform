@@ -20,7 +20,7 @@ export type ReadingTest = {
 export type ListeningTest = {
   id: string;
   title: string;
-  autioUrl: string;
+  audioUrl: string;
   questions: Question[];
 }
 
