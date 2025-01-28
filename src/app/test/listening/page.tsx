@@ -6,9 +6,10 @@ import { thresholds } from "../thresholds";
 import { redirect } from "next/navigation";
 import { data } from "../data";
 import { useUserLevel } from "../UserLevelProvider";
-import { Level } from '../../_lib/models/level';
+import { Level } from "../../_lib/models/level";
 import { ListeningTestComponent } from "./ListeningTestComponent";
 import { ListeningTest } from "../../_lib/models/test";
+import { TestPage } from "../_components/TestPage";
 
 enum CombinedLevel {
   A1_A2 = "A1_A2",
@@ -44,8 +45,8 @@ export default function ListeningTestHome() {
     data.listening.B1_B2[0],
   );
 
-  function dispatchLevel (level: Level) {
-    dispatch({ type: 'SET_LEVEL', payload: { section: 'listening', level } });
+  function dispatchLevel(level: Level) {
+    dispatch({ type: "SET_LEVEL", payload: { section: "listening", level } });
   }
 
   function handleSubmitAnswers() {
@@ -87,26 +88,18 @@ export default function ListeningTestHome() {
         console.log("Current level is C1");
         redirect("/test/grammar");
       }
-  };
-}
+    }
+  }
 
-// TODO: replace with an error boundary
-if (!currentTest) return <div>Loading...</div>;
+  // TODO: replace with an error boundary
+  if (!currentTest) return <div>Loading...</div>;
 
   return (
-    <div className="min-h-screen p-8 pb-20 sm:p-20 bg-gray-100">
-      <main className="max-w-5xl mx-auto bg-white p-8 rounded shadow-md">
-        <h1 className="text-3xl font-bold mb-8 text-center">Listening test</h1>
-        <ListeningTestComponent key={currentTest.id} data={currentTest} />
-
-        <div className="mt-8 flex justify-center">
-          <Button
-            onClick={handleSubmitAnswers}
-          >
-            Submit answers
-          </Button>
-        </div>
-      </main>
-    </div>
+    <TestPage
+      title="Listening test"
+      cta={<Button onClick={handleSubmitAnswers}>Submit answers</Button>}
+    >
+      <ListeningTestComponent key={currentTest.id} data={currentTest} />
+    </TestPage>
   );
 }
