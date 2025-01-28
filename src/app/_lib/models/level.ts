@@ -3,3 +3,9 @@ export enum Level {
 };
 
 export const Levels = Object.values(Level);
+
+export enum CombinedLevel {
+  A1_A2 = "A1_A2",
+  B1_B2 = "B1_B2",
+  C1_C2 = "C1_C2",
+}

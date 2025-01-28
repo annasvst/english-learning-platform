@@ -10,7 +10,7 @@ export default function Result() {
 
   const readingLevel = state.reading;
   const listeningLevel = state.listening;
-  const writingLevel = state.writing;
+  const grammarLevel = state.grammar;
 
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
@@ -19,7 +19,7 @@ export default function Result() {
         <h2>Your result</h2>
         <p>Reading: {readingLevel}</p>
         <p>Listening: {listeningLevel}</p>
-        <p>Writing: {writingLevel}</p>
+        <p>Grammar: {grammarLevel}</p>
         <Button color={ButtonColor.Primary}>
           <Link href="/">Return to the main page</Link>
         </Button>

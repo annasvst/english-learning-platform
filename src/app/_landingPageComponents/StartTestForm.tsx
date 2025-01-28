@@ -6,6 +6,7 @@ import { Button } from "../_components/Button";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { Checkbox } from "../_components/inputs/Checkbox";
 import { FormError } from "../_components/inputs/FormError";
+import Link from "next/link";
 
 type TestSignUpFormInputs = {
   name: string;
@@ -62,7 +63,7 @@ export const StartTestForm = () => {
           id="form"
           noValidate
         >
-          <div>
+          <div className="my-8">
             <label htmlFor="name" className="block font-medium text-gray-800">
               Ad
             </label>
@@ -81,7 +82,7 @@ export const StartTestForm = () => {
             />
             {errors.name && <FormError>Lütfen adınızı girin</FormError>}
           </div>
-          <div>
+          <div className="my-8">
             <label htmlFor="email" className="block font-medium text-gray-800">
               E-posta Adresi
             </label>
@@ -100,7 +101,7 @@ export const StartTestForm = () => {
             />
             {errors.email && <FormError>{errors.email.message}</FormError>}
           </div>
-          <div>
+          <div className="my-8">
             <label
               htmlFor="birthYear"
               className="block font-medium text-gray-800"
@@ -128,15 +129,22 @@ export const StartTestForm = () => {
               <FormError>{errors.birthYear.message}</FormError>
             )}
           </div>
-          <div>
+          <div className="my-8">
             <Checkbox
               id="consent"
               register={{
                 ...register("consent", {
-                  required: "Bu alan zorunlu",
+                  required: "Bu alan teste katılmak için zorunlu",
                 }),
               }}
-              label="Kişisel bilgilerimin toplanması ve işlenmesine izin veriyorum."
+              label={
+                <span>
+                  Kişisel verilerimin işlenmesine ilişkin{" "}
+                  <Link href="/policies/privacy-policy" target="_blank" className="underline hover:text-teal-800 hover:cursor-pointer">
+                    Gizlilik Politikası ve Aydınlatma Metnini
+                  </Link>{" "}okudum, kabul ediyorum.
+                </span>
+              }
               error={errors?.consent?.message}
             />
           </div>

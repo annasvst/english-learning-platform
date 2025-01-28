@@ -27,6 +27,7 @@ export type ListeningTest = {
 export type GrammarTest = {
   id: string;
   title: string;
+  text: string;
   questions: Question[];
 }
 
