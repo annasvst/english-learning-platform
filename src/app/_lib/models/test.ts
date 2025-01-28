@@ -20,6 +20,7 @@ export type ReadingTest = {
 export type ListeningTest = {
   id: string;
   title: string;
+  text: string;
   autioUrl: string;
   questions: Question[];
 }
@@ -27,6 +28,7 @@ export type ListeningTest = {
 export type GrammarTest = {
   id: string;
   title: string;
+  text: string;
   questions: Question[];
 }
 
