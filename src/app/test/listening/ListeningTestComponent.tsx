@@ -1,17 +1,17 @@
 "use client";
 
-import { Locale, ReadingTest } from "modules/app/_lib/models/test";
+import { ListeningTest, Locale } from "modules/app/_lib/models/test";
 import { useTestAnswers } from "../TestAnswersProvider";
 
-interface ReadingTestComponentProps {
-  data: ReadingTest;
+interface ListeningTestComponentProps {
+  data: ListeningTest;
 }
 
-export const ReadingTestComponent: React.FC<ReadingTestComponentProps> = ({
+export const ListeningTestComponent: React.FC<ListeningTestComponentProps> = ({
   data,
 }) => {
   const { state, dispatch } = useTestAnswers();
-  const section = "reading";
+  const section = 'listening';
 
   const handleOptionChange = (questionId: string, optionId: string) => {
     dispatch({
@@ -23,7 +23,7 @@ export const ReadingTestComponent: React.FC<ReadingTestComponentProps> = ({
   return (
     <>
       <div className="text-gray-600 mt-6  mb-12 flex gap-4 italic">
-        <ul className="">
+        <ul>
           {data.instructions[Locale.EN].split("\n").map((paragraph, index) => (
             <li key={index}>{paragraph}</li>
           ))}
@@ -32,9 +32,10 @@ export const ReadingTestComponent: React.FC<ReadingTestComponentProps> = ({
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
         <div className="text-gray-900 text-lg max-w-prose">
-          {data.text.split("\n").map((paragraph, index) => (
-            <p key={index}>{paragraph}</p>
-          ))}
+          <audio controls className="w-full">
+            <source src={data.audioUrl} type="audio/mpeg" />
+            Your browser does not support the audio element.
+          </audio>
         </div>
         <div>
           {data.questions.map((question) => (
@@ -74,9 +75,7 @@ export const ReadingTestComponent: React.FC<ReadingTestComponentProps> = ({
                         />
                       </svg>
                     </div>
-                    <label htmlFor={option.id}>
-                      {option.title}
-                    </label>
+                    <label htmlFor={option.id}>{option.title}</label>
                   </div>
                 ))}
               </form>

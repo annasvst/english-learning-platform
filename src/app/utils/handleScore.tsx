@@ -3,6 +3,7 @@ import { thresholds } from "../test/thresholds";
 import { Level } from "../_lib/models/level";
 import { Data } from "../test/data";
 import { Test } from "../_lib/models/test";
+import { Dispatch, SetStateAction } from "react";
 
 export function handleScore(
   score: number,
@@ -10,7 +11,7 @@ export function handleScore(
   dispatchLevel: (level: Level) => void,
   redirectToNext: () => void,
   setCurrentLevel: (level: CombinedLevel) => void,
-  setCurrentTest: (test: Test) => void,
+  setCurrentTest: Dispatch<SetStateAction<Test>>,
   testData: Data["grammar"] | Data["listening"] | Data["reading"]
 ) {
   if (currentLevel === CombinedLevel.B1_B2) {
