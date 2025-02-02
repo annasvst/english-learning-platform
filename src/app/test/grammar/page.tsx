@@ -32,11 +32,33 @@ export default function GrammarTestHome() {
     dispatch({ type: "SET_LEVEL", payload: { section: "grammar", level } });
   }
 
-  function handleSubmitAnswers() {
+  async function handleSubmitAnswers() {
     const currentAnswers = testAnswersState.grammar?.[currentTest.id] ?? {};
 
     if (Object.keys(currentAnswers).length !== 10) {
       setErrorDialogOpen(true);
+      return;
+    }
+
+    try {
+      const request = await fetch("/api/answers", {
+        method: "POST",
+        body: JSON.stringify({
+          grammar: {
+            [currentTest.id]: currentAnswers,
+          },
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (!request.ok) {
+        throw new Error("Failed to submit answers");
+      }
+    } catch (error) {
+      // TODO: Handle error
+      console.error("Failed to submit answers", error);
       return;
     }
     

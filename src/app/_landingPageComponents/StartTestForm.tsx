@@ -47,6 +47,20 @@ export const StartTestForm = () => {
       if (response.ok) {
         console.log("User created successfully");
         dispatch({ type: "RESET_ANSWERS" });
+        try {
+          const deleteAnswersResponse = await fetch("/api/answers", {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          });
+          if (!deleteAnswersResponse.ok) {
+            throw new Error("Failed to delete answers");
+          }
+        } catch (error) {
+          console.error("Failed to delete answers", error);
+          return;
+        }
         setInstructionsDialogOpen(true);
         
       } else if (response.status === 429) {
