@@ -7,6 +7,9 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { Checkbox } from "../_components/inputs/Checkbox";
 import { FormError } from "../_components/inputs/FormError";
 import Link from "next/link";
+import { useState } from "react";
+import { TestSessionActiveDialog } from "./TestSessionActiveDialog";
+import { TestInstructionsDialog } from "./TestInstructionsDialog";
 
 type TestSignUpFormInputs = {
   name: string;
@@ -18,6 +21,8 @@ type TestSignUpFormInputs = {
 export const StartTestForm = () => {
   const { dispatch } = useTestAnswers();
   const router = useRouter();
+  const [warningDialogOpen, setWarningDialogOpen] = useState(false);
+  const [instructionsDialogOpen, setInstructionsDialogOpen] = useState(false);
 
   const {
     register,
@@ -42,7 +47,11 @@ export const StartTestForm = () => {
       if (response.ok) {
         console.log("User created successfully");
         dispatch({ type: "RESET_ANSWERS" });
-        router.push("/test/reading");
+        setInstructionsDialogOpen(true);
+        
+      } else if (response.status === 429) {
+        console.error("Test limit reached, wait for 1 hour to re-do the test");
+        setWarningDialogOpen(true);
       } else {
         console.error("Error creating user");
       }
@@ -52,6 +61,7 @@ export const StartTestForm = () => {
   };
 
   return (
+    <>
     <section id="htmlForm" className="py-40 px-8 md:px-20 bg-gray-50">
       <div className="container mx-auto max-w-lg">
         <h2 className="text-4xl font-bold text-center text-primary text-gray-700">
@@ -156,5 +166,8 @@ export const StartTestForm = () => {
         </form>
       </div>
     </section>
+    <TestInstructionsDialog open={instructionsDialogOpen} setOpen={setInstructionsDialogOpen} action={() => router.push("/test/reading")} />
+    <TestSessionActiveDialog open={warningDialogOpen} setOpen={setWarningDialogOpen} />
+    </>
   );
 };
