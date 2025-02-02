@@ -18,6 +18,7 @@ import { TestPage } from "../_components/TestPage";
 export default function ReadingTestHome() {
   const { state: testAnswersState } = useTestAnswers();
   const { dispatch } = useUserLevel();
+  const [errorDilogOpen, setErrorDialogOpen] = useState(false);
 
   const [currentLevel, setCurrentLevel] = useState<CombinedLevel>(
     CombinedLevel.B1_B2,
@@ -31,7 +32,13 @@ export default function ReadingTestHome() {
   }
 
   function handleSubmitAnswers() {
-    const currentAnswers = testAnswersState.reading[currentTest.id];
+    const currentAnswers = testAnswersState.reading?.[currentTest.id] ?? {};
+
+    if (Object.keys(currentAnswers).length !== 10) {
+      setErrorDialogOpen(true);
+      return;
+    }
+    
     const score = calculateTestScore(currentAnswers, currentTest);
     handleScore(
       score,
@@ -45,11 +52,15 @@ export default function ReadingTestHome() {
   }
 
   return (
+    <>
     <TestPage
       title="Reading test"
       cta={<Button onClick={handleSubmitAnswers}>Submit answers</Button>}
+      errorDilogOpen={errorDilogOpen}
+      setErrorDialogOpen={setErrorDialogOpen}
     >
       <ReadingTestComponent data={currentTest} />
     </TestPage>
+    </>
   );
 }
