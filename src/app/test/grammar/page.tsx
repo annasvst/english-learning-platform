@@ -18,6 +18,8 @@ import { TestPage } from "../_components/TestPage";
 export default function GrammarTestHome() {
   const { state: testAnswersState } = useTestAnswers();
   const { dispatch } = useUserLevel();
+  const [errorDilogOpen, setErrorDialogOpen] = useState(false);
+
 
   const [currentLevel, setCurrentLevel] = useState<CombinedLevel>(
     CombinedLevel.B1_B2,
@@ -31,7 +33,13 @@ export default function GrammarTestHome() {
   }
 
   function handleSubmitAnswers() {
-    const currentAnswers = testAnswersState.grammar[currentTest.id];
+    const currentAnswers = testAnswersState.grammar?.[currentTest.id] ?? {};
+
+    if (Object.keys(currentAnswers).length !== 10) {
+      setErrorDialogOpen(true);
+      return;
+    }
+    
     const score = calculateTestScore(currentAnswers, currentTest);
     handleScore(
       score,
@@ -48,8 +56,10 @@ export default function GrammarTestHome() {
     <TestPage
       title="Grammar test"
       cta={<Button onClick={handleSubmitAnswers}>Submit answers</Button>}
+      errorDilogOpen={errorDilogOpen}
+      setErrorDialogOpen={setErrorDialogOpen}
     >
-      <GrammarTestComponent key={currentTest.id} data={currentTest} />
+      <GrammarTestComponent data={currentTest} />
     </TestPage>
   );
 }

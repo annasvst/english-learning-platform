@@ -8,7 +8,7 @@ interface ReadingTestComponentProps {
 }
 
 export const ReadingTestComponent: React.FC<ReadingTestComponentProps> = ({
-  data,
+  data
 }) => {
   const { state, dispatch } = useTestAnswers();
   const section = "reading";
