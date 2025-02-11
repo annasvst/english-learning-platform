@@ -31,11 +31,33 @@ export default function ReadingTestHome() {
     dispatch({ type: "SET_LEVEL", payload: { section: "reading", level } });
   }
 
-  function handleSubmitAnswers() {
+  async function handleSubmitAnswers() {
     const currentAnswers = testAnswersState.reading?.[currentTest.id] ?? {};
 
     if (Object.keys(currentAnswers).length !== 10) {
       setErrorDialogOpen(true);
+      return;
+    }
+
+    try {
+      const request = await fetch("/api/answers", {
+        method: "POST",
+        body: JSON.stringify({
+          reading: {
+            [currentTest.id]: currentAnswers,
+          },
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (!request.ok) {
+        throw new Error("Failed to submit answers");
+      }
+    } catch (error) {
+      // TODO: Handle error
+      console.error("Failed to submit answers", error);
       return;
     }
     
