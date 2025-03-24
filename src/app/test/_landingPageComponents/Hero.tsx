@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Button, ButtonColor } from "../_components/Button";
+import { Button, ButtonColor } from "@components/Button";
 
 export const Hero = () => {
   return (

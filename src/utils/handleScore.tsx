@@ -1,8 +1,8 @@
-import { CombinedLevel } from "../_lib/models/level";
-import { thresholds } from "../test/thresholds";
-import { Level } from "../_lib/models/level";
-import { Data } from "../test/data";
-import { Test } from "../_lib/models/test";
+import { CombinedLevel } from "../app/_lib/models/level";
+import { thresholds } from "../app/test/thresholds";
+import { Level } from "../app/_lib/models/level";
+import { Data } from "../app/test/data";
+import { Test } from "../app/_lib/models/test";
 import { Dispatch, SetStateAction } from "react";
 
 export function handleScore(

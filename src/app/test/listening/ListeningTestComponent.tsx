@@ -1,6 +1,6 @@
 "use client";
 
-import { ListeningTest, Locale } from "modules/app/_lib/models/test";
+import { ListeningTest, Locale } from "@lib/models/test";
 import { useTestAnswers } from "../TestAnswersProvider";
 
 interface ListeningTestComponentProps {

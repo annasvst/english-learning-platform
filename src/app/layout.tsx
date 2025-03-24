@@ -1,26 +1,22 @@
-import type { Metadata } from "next";
-import "./globals.css";
-import { TestAnswersProvider } from "./test/TestAnswersProvider";
-import { UserLevelProvider } from "./test/UserLevelProvider";
+import type { Metadata } from 'next';
+import './globals.css';
 
 export const metadata: Metadata = {
-  title: "İngilizce Dil Seviyesi Test Platformu",
-  description:
-    "İngilizce dil seviyenizi ölçmek için kapsamlı ve kullanıcı dostu bir test platformu. Okuma, dinleme ve dilbilgisi becerilerinizi değerlendirin.",
+	title: 'İngilizce Geliştirme Platformu',
+	description:
+		'İngilizce dil seviyenizi ölçmek için kapsamlı ve kullanıcı dostu bir test platformu. Okuma, dinleme ve dilbilgisi becerilerinizi değerlendirin.',
 };
 
-export default function RootLayout({
-  children,
+export default async function RootLayout({
+	children,
 }: Readonly<{
-  children: React.ReactNode;
+	children: React.ReactNode;
 }>) {
-  return (
-    <html lang="tr">
-      <body>
-        <UserLevelProvider>
-          <TestAnswersProvider>{children}</TestAnswersProvider>
-        </UserLevelProvider>
-      </body>
-    </html>
-  );
+
+
+	return (
+		<html lang='tr'>
+			<body>{children}</body>
+		</html>
+	);
 }

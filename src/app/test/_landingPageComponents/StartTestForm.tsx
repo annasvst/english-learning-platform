@@ -1,11 +1,11 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useTestAnswers } from "../test/TestAnswersProvider";
-import { Button } from "../_components/Button";
+import { useTestAnswers } from "../TestAnswersProvider";
+import { Button } from "@components/Button";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { Checkbox } from "../_components/inputs/Checkbox";
-import { FormError } from "../_components/inputs/FormError";
+import { Checkbox } from "@components/inputs/Checkbox";
+import { FormError } from "@components/inputs/FormError";
 import Link from "next/link";
 import { useState } from "react";
 import { TestSessionActiveDialog } from "./TestSessionActiveDialog";

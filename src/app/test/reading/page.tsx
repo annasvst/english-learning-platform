@@ -1,5 +1,5 @@
 "use client";
-import { Button } from "modules/app/_components/Button";
+import { Button } from "@components/Button";
 
 import { ReadingTestComponent } from "./ReadingTestComponent";
 import { useState } from "react";
@@ -7,11 +7,11 @@ import { useTestAnswers } from "../TestAnswersProvider";
 import { redirect } from "next/navigation";
 import { data } from "../data";
 import { useUserLevel } from "../UserLevelProvider";
-import { Level } from "../../_lib/models/level";
-import { ReadingTest, Test } from "modules/app/_lib/models/test";
-import { calculateTestScore } from "modules/app/utils/calculateTestScore";
-import { CombinedLevel } from "../../_lib/models/level";
-import { handleScore } from "modules/app/utils/handleScore";
+import { Level } from "@lib/models/level";
+import { ReadingTest, Test } from "@lib/models/test";
+import { calculateTestScore } from "@utils/calculateTestScore";
+import { CombinedLevel } from "@lib/models/level";
+import { handleScore } from "@utils/handleScore";
 import { TestPage } from "../_components/TestPage";
 
 // TODO: Add error handling (e.g. if user passed this test already but navigates back in the browser)

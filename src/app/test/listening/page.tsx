@@ -1,16 +1,16 @@
 "use client";
 import { useState } from "react";
-import { Button } from "modules/app/_components/Button";
+import { Button } from "@components/Button";
 import { useTestAnswers } from "../TestAnswersProvider";
 import { redirect } from "next/navigation";
 import { data } from "../data";
 import { useUserLevel } from "../UserLevelProvider";
-import { CombinedLevel, Level } from "../../_lib/models/level";
+import { CombinedLevel, Level } from "@lib/models/level";
 import { ListeningTestComponent } from "./ListeningTestComponent";
-import { ListeningTest, Test } from "../../_lib/models/test";
+import { ListeningTest, Test } from "@lib/models/test";
 import { TestPage } from "../_components/TestPage";
-import { calculateTestScore } from "modules/app/utils/calculateTestScore";
-import { handleScore } from "modules/app/utils/handleScore";
+import { calculateTestScore } from "@utils/calculateTestScore";
+import { handleScore } from "@utils/handleScore";
 
 export default function ListeningTestHome() {
   const { state: testAnswersState } = useTestAnswers();

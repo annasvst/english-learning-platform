@@ -1,6 +1,3 @@
-Here's a high-level plan for creating a Next.js application that tests English reading, listening, and grammar skills in under 30 minutes. The goal is to keep things simple but effective. Feel free to adapt any part of the plan to your needs or tech stack preferences.
-
----
 
 ## 1. Project Structure
 
@@ -17,15 +14,17 @@ Here's a high-level plan for creating a Next.js application that tests English r
      - `reading/`: Contains reading test pages/components.
      - `listening/`: Contains listening test pages/components.
      - `grammar/`: Contains grammar test pages/components.
-   - `app/api/`: Could have endpoints if you need to store results or fetch test data from a server.
+   - `app/api/`: Endpoints if you need to store results or fetch test data from a server.
 
 3. **Styling & UI**  
-   - Pick your favorite UI library (e.g., Tailwind CSS, Material-UI, or plain CSS modules).
+   - Tailwind CSS,
+   - Component library - HeadlessUI
+   - Icons - Phosphor-icons
    - Keep a consistent design for the quiz/test UI, progress bar, etc.
 
 ---
 
-## 2. User Flow & Test Flow
+## 2. User Flow & Test Flow (quick test part of the application)
 
 1. **Landing Page (`/`)**  
    - Brief instructions on the test (duration: 30 minutes max).  
