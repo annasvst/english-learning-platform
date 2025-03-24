@@ -1,6 +1,6 @@
 "use client";
 
-import { GrammarTest, Locale } from "modules/app/_lib/models/test";
+import { GrammarTest, Locale } from "@lib/models/test";
 import { useTestAnswers } from "../TestAnswersProvider";
 import Image from "next/image";
 

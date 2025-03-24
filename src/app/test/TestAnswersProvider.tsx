@@ -54,7 +54,8 @@ const testAnswersReducer = (
       return initialState;
     }
     default:
-      throw new Error("Unhandled action type");
+      console.log("Unhandled action type");
+      return state;
   }
 };
 
