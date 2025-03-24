@@ -1,5 +1,10 @@
-'use client';
-import React, { createContext, useReducer, ReactNode, useContext } from 'react';
+"use client";
+import React, {
+  createContext,
+  useReducer,
+  ReactNode,
+  useContext,
+} from "react";
 
 export interface TestAnswersState {
   [section: string]: {
@@ -9,21 +14,30 @@ export interface TestAnswersState {
   };
 }
 
-interface Action {
-  type: 'SET_ANSWER' | 'RESET_ANSWERS';
-  payload?: {
+type SetAnswerAction = {
+  type: "SET_ANSWER";
+  payload: {
     section: string;
     testId: string;
     questionId: string;
     optionId: string;
   };
-}
+};
+
+type ResetAnswersAction = {
+  type: "RESET_ANSWERS";
+};
+
+type Action = SetAnswerAction | ResetAnswersAction;
 
 const initialState: TestAnswersState = {};
 
-const testAnswersReducer = (state: TestAnswersState, action: Action): TestAnswersState => {
+const testAnswersReducer = (
+  state: TestAnswersState,
+  action: Action,
+): TestAnswersState => {
   switch (action.type) {
-    case 'SET_ANSWER': {
+    case "SET_ANSWER": {
       const { section, testId, questionId, optionId } = action.payload!;
       return {
         ...state,
@@ -36,7 +50,7 @@ const testAnswersReducer = (state: TestAnswersState, action: Action): TestAnswer
         },
       };
     }
-    case 'RESET_ANSWERS': {
+    case "RESET_ANSWERS": {
       return initialState;
     }
     default:
@@ -45,13 +59,22 @@ const testAnswersReducer = (state: TestAnswersState, action: Action): TestAnswer
   }
 };
 
-const TestAnswersContext = createContext<{
-  state: TestAnswersState;
-  dispatch: React.Dispatch<Action>;
-} | undefined>(undefined);
+const TestAnswersContext = createContext<
+  | {
+      state: TestAnswersState;
+      dispatch: React.Dispatch<Action>;
+    }
+  | undefined
+>(undefined);
 
-const TestAnswersProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [state, dispatch] = useReducer(testAnswersReducer, initialState);
+const TestAnswersProvider: React.FC<{
+  initialAnswers: TestAnswersState;
+  children: ReactNode;
+}> = ({ initialAnswers, children }) => {
+  const [state, dispatch] = useReducer(
+    testAnswersReducer,
+    initialAnswers || initialState,
+  );
 
   return (
     <TestAnswersContext.Provider value={{ state, dispatch }}>
@@ -63,7 +86,7 @@ const TestAnswersProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 const useTestAnswers = () => {
   const context = useContext(TestAnswersContext);
   if (context === undefined) {
-    throw new Error('useTestAnswers must be used within a TestAnswersProvider');
+    throw new Error("useTestAnswers must be used within a TestAnswersProvider");
   }
   return context;
 };

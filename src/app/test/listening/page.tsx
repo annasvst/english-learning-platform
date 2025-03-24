@@ -29,11 +29,33 @@ export default function ListeningTestHome() {
     dispatch({ type: "SET_LEVEL", payload: { section: "listening", level } });
   }
 
-  function handleSubmitAnswers() {
+  async function handleSubmitAnswers() {
     const currentAnswers = testAnswersState.listening?.[currentTest.id] ?? {};
 
     if (Object.keys(currentAnswers).length !== 10) {
       setErrorDialogOpen(true);
+      return;
+    }
+
+    try {
+      const request = await fetch("/api/answers", {
+        method: "POST",
+        body: JSON.stringify({
+          listening: {
+            [currentTest.id]: currentAnswers,
+          },
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (!request.ok) {
+        throw new Error("Failed to submit answers");
+      }
+    } catch (error) {
+      // TODO: Handle error
+      console.error("Failed to submit answers", error);
       return;
     }
 
