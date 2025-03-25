@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Button, ButtonColor } from "modules/app/_components/Button";
+import { Button, ButtonColor } from "@components/Button";
 import { TestResults } from "../_components/TestResults";
 import { useEffect, useState } from "react";
 import { ImageBroken } from "@phosphor-icons/react";
