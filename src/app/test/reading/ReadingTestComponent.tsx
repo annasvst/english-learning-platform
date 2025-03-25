@@ -1,6 +1,6 @@
 "use client";
 
-import { Locale, ReadingTest } from "modules/app/_lib/models/test";
+import { Locale, ReadingTest } from "@lib/models/test";
 import { useTestAnswers } from "../TestAnswersProvider";
 
 interface ReadingTestComponentProps {

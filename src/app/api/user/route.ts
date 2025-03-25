@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { doc, setDoc, collection, getDocs, query, where } from 'firebase/firestore';
 import { z } from 'zod';
 import { v4 as uuidv4 } from 'uuid';
-import { db } from 'modules/app/_lib/firebase';
+import { db } from '@lib/firebase';
 
 const usersCollectionRef = collection(db, "users");
 
