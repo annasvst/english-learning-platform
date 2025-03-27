@@ -63,9 +63,15 @@ export const POST = async (req: NextRequest) => {
 }
 
 async function buffer(readable: NextRequest) {
+  const reader = readable.body?.getReader();
   const chunks = [];
-  for await (const chunk of readable) {
-    chunks.push(typeof chunk === 'string' ? Buffer.from(chunk) : chunk);
+  if (!reader) throw new Error('Readable stream is not available on the request.');
+
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    chunks.push(value);
   }
+
   return Buffer.concat(chunks);
 }
