@@ -7,7 +7,7 @@ export const config = {
   },
 };
 
-export default async function POST(req: NextRequest) {
+export const POST = async (req: NextRequest) => {
   try {
     console.log(req);
     const STRIPE_PRIVATE_KEY = process.env.STRIPE_PRIVATE_KEY;
