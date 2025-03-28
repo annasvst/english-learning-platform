@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { google } from "googleapis";
+import { OAuth2Client } from "google-auth-library";
 
 const SCOPES = ["https://www.googleapis.com/auth/calendar.readonly"];
 
@@ -27,7 +28,7 @@ export const GET = async () => {
       scopes: SCOPES,
     });
 
-    const authClient = await auth.getClient();
+    const authClient = (await auth.getClient()) as OAuth2Client;
 
     const calendar = google.calendar({
       version: 'v3',
