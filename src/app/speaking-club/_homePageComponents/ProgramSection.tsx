@@ -4,9 +4,10 @@ import { useState } from 'react';
 import { CaretDown, CaretUp } from "@phosphor-icons/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { CalendarEvent } from '@/app/_lib/calendar/events';
 
 interface ProgramSectionProps {
-  events: { id: string; summary: string; start: string; description?: string }[];
+  events: CalendarEvent[];
 }
 
 export default function ProgramSection({ events }: ProgramSectionProps) {

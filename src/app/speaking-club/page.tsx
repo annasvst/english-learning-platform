@@ -1,3 +1,4 @@
+import { getCalendarEvents } from "../_lib/calendar/events";
 import HeroSection from "./_homePageComponents/HeroSection";
 import ProgramSection from "./_homePageComponents/ProgramSection";
 
@@ -5,17 +6,7 @@ export const dynamic = 'force-dynamic';
 
 export default async function SpeakingClubHome() {
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/calendar/events`, {
-      next: { revalidate: 0 },
-    });
-
-    if (!response.ok) {
-      throw new Error(`Failed to fetch events. Status code: ${response.status}`);
-    }
-
-    const events = await response.json();
-    
-    console.log('Fetched events:', events);
+    const events = await getCalendarEvents();
 
     return (
       <div>
