@@ -1,6 +1,8 @@
 import HeroSection from "./_homePageComponents/HeroSection";
 import ProgramSection from "./_homePageComponents/ProgramSection";
 
+export const dynamic = 'force-dynamic';
+
 export default async function SpeakingClubHome() {
   try {
     const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/calendar/events`);
