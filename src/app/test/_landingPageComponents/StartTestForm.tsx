@@ -42,10 +42,7 @@ export const StartTestForm = () => {
         body: JSON.stringify({ ...formData }),
       });
 
-      console.log(response);
-
       if (response.ok) {
-        console.log("User created successfully");
         dispatch({ type: "RESET_ANSWERS" });
         try {
           const deleteAnswersResponse = await fetch("/api/answers", {
@@ -64,7 +61,6 @@ export const StartTestForm = () => {
         setInstructionsDialogOpen(true);
         
       } else if (response.status === 429) {
-        console.error("Test limit reached, wait for 1 hour to re-do the test");
         setWarningDialogOpen(true);
       } else {
         console.error("Error creating user");
