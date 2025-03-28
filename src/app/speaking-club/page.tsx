@@ -5,7 +5,9 @@ export const dynamic = 'force-dynamic';
 
 export default async function SpeakingClubHome() {
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/calendar/events`);
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/calendar/events`, {
+      next: { revalidate: 0 },
+    });
 
     if (!response.ok) {
       throw new Error(`Failed to fetch events. Status code: ${response.status}`);
