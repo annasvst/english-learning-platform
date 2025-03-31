@@ -11,9 +11,14 @@ interface ProgramSectionProps {
 }
 
 export default function ProgramSection({ events }: ProgramSectionProps) {
-  const [expandedDays, setExpandedDays] = useState<Record<string, boolean>>({});
-    const router = useRouter();
-
+  const router = useRouter();
+  const [expandedDays, setExpandedDays] = useState<Record<string, boolean>>(() => {
+    return events.reduce((acc, event) => {
+      const date = new Date(event.start).toLocaleDateString();
+      acc[date] = true;
+      return acc;
+    }, {} as Record<string, boolean>);
+  });
 
   const toggleDay = (date: string) => {
     setExpandedDays(prev => ({
