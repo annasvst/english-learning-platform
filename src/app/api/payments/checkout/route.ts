@@ -28,10 +28,11 @@ export const POST = async (req: NextRequest) => {
       ],
       mode: 'payment',
       success_url: `${NEXT_PUBLIC_API_BASE_URL}/speaking-club/booking/success`,
-      cancel_url: `${NEXT_PUBLIC_API_BASE_URL}/speaking-club/booking/cancel`,
+      cancel_url: `${NEXT_PUBLIC_API_BASE_URL}/speaking-club/`,
       metadata: {
         eventId,
       },
+      allow_promotion_codes: true
     });
     
     return NextResponse.json({ url: checkoutSession.url }, { status: 200 });
