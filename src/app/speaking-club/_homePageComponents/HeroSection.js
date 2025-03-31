@@ -64,7 +64,7 @@ export default function HeroSection() {
               <div className="w-16 h-16 bg-custom-pink rounded-full flex items-center justify-center mb-3 md:mb-4"> 
                 <VideoCamera size={32} weight="bold" style={{ color: 'black' }} />
               </div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">Google Meet'te görüşmek için hazır olun</h3>
+              <h3 className="text-xl font-semibold text-gray-800 mb-2">Google Meet&apos;te görüşmek için hazır olun</h3>
               <p className="text-gray-600">
                 Belirlenen saatte, istediğiniz yerden rahatça İngilizce konuşma pratiği yapın!
               </p>

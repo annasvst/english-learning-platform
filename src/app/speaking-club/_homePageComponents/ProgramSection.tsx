@@ -3,12 +3,15 @@
 import { useState } from 'react';
 import { CaretDown, CaretUp } from "@phosphor-icons/react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { CalendarEvent } from '@/app/_lib/calendar/events';
 
 interface ProgramSectionProps {
-  events: { summary: string; start: string; description?: string }[];
+  events: CalendarEvent[];
 }
 
 export default function ProgramSection({ events }: ProgramSectionProps) {
+  const router = useRouter();
   const [expandedDays, setExpandedDays] = useState<Record<string, boolean>>(() => {
     return events.reduce((acc, event) => {
       const date = new Date(event.start).toLocaleDateString();
@@ -53,6 +56,29 @@ export default function ProgramSection({ events }: ProgramSectionProps) {
     return acc;
   }, {} as Record<string, typeof events>);
 
+  const handleBookClick = async (eventId: string) => {
+    try {
+      const request = await fetch('/api/payments/checkout', {
+        method: "POST",
+        body: JSON.stringify({
+          eventId: eventId,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (!request.ok) {
+        throw new Error("Failed to handle payment");
+      }
+      const url = await request.json();
+      router.push(url.url);
+      
+    } catch (error) {
+      console.error("Failed to handle payment", error);
+      return;
+    }
+  }
   return (
     <>
       <section id="program" className="bg-teal-700 py-12 md:py-20">
@@ -90,7 +116,7 @@ export default function ProgramSection({ events }: ProgramSectionProps) {
                 {expandedDays[date] && (
                   <div className="space-y-4 md:space-y-6">
                     {dayEvents.map((event, eventIndex) => (
-                      <div key={eventIndex}>
+                      <div key={event.id}>
                         <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 md:gap-4">
                           <div className="text-sm md:text-base font-light text-teal-50">
                             {formatTime(event.start)}
@@ -98,7 +124,7 @@ export default function ProgramSection({ events }: ProgramSectionProps) {
                           <div className="flex-1">
                             <p className="text-base md:text-lg font-bold text-teal-50">{event.summary}</p>
                           </div>
-                          <button className="w-full md:w-auto bg-teal-600 text-teal-50 px-4 md:px-6 py-2 rounded-md hover:bg-teal-100 text-sm md:text-base">
+                          <button className="w-full md:w-auto bg-teal-600 text-teal-50 px-4 md:px-6 py-2 rounded-md hover:bg-teal-100 text-sm md:text-base" onClick={() => handleBookClick(event.id)}>
                             Book
                           </button>
                         </div>
