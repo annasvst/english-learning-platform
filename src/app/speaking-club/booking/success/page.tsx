@@ -43,7 +43,7 @@ export default async function SpeakingClubPaymentSuccessful() {
             <span className="text-xl">💡</span>
             <p className="font-medium">
               Önemli İpucu: Oturum sırasında daha özgüvenli hissetmek için
-              düşüncelerinizi önceden planlayın!
+              söyleyeceklerinizi önceden planlayın!
             </p>
           </div>
         </div>

@@ -11,7 +11,7 @@ export default function NotFound() {
         </p>
         <Link 
           href="/" 
-          className="text-teal-600 hover:text-teal-700 font-medium text-lg"
+          className="text-teal-700 hover:text-teal-800 font-medium text-lg"
         >
           Ana Sayfaya Dön
         </Link>

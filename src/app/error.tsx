@@ -5,15 +5,12 @@ import { useEffect } from 'react';
 
 export default function Error({
   error,
-  reset,
 }: {
   error: Error & { digest?: string };
-  reset: () => void;
 }) {
-
-    useEffect(() => {
-        console.error(error)
-      }, [error])
+  useEffect(() => {
+    console.error(error);
+  }, [error]);
       
   return (
     <div className="min-h-screen bg-rose-50 flex items-center justify-center p-4">
@@ -23,20 +20,13 @@ export default function Error({
         <p className="text-gray-600 mb-8">
           Üzgünüz, bir hata oluştu. Lütfen daha sonra tekrar deneyin.
         </p>
-        <div className="flex flex-col gap-6">
-          <button
-            onClick={reset}
-            className="text-teal-600 hover:text-teal-700 font-medium text-lg"
-          >
-            Tekrar Dene
-          </button>
           <Link 
             href="/" 
-            className="text-teal-600 hover:text-teal-700 font-medium text-lg"
+            className="text-teal-700 hover:text-teal-800 font-medium text-lg"
           >
             Ana Sayfaya Dön
           </Link>
-        </div>
+      
       </div>
     </div>
   );
