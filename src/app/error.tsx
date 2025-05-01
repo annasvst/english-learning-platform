@@ -1,17 +1,10 @@
-'use client';
-
 import Link from 'next/link';
-import { useEffect } from 'react';
 
 export default function Error({
   error,
 }: {
   error: Error & { digest?: string };
 }) {
-  useEffect(() => {
-    console.error(error);
-  }, [error]);
-      
   return (
     <div className="min-h-screen bg-rose-50 flex items-center justify-center p-4">
       <div className="max-w-md w-full text-center">

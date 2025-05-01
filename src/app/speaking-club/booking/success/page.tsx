@@ -1,5 +1,4 @@
 export default async function SpeakingClubPaymentSuccessful() {
-  // Try using light teal tones to create gradient (see test hero page).
   return (
     <div className="min-h-screen bg-rose-50 flex items-center justify-center p-4">
       <div className="max-w-2xl w-full bg-white rounded-lg shadow-lg p-8 md:p-12">
